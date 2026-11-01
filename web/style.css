@@ -130,3 +130,14 @@ body.fokus.fokus-mehr-offen .fokus-stand{visibility:hidden}
 @media(orientation:portrait){#home{overflow-y:auto;scrollbar-width:none}#home::-webkit-scrollbar{display:none}#home>*{flex-shrink:0}#prayerChoices{flex:1 0 auto;grid-template-rows:repeat(3,auto);align-content:stretch}}
 #prayerChoices .prayer-primary,.time-cell .time-primary{overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}
 #homeShortcuts button{hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word}
+/* Kleine Handys / Querformat / große Schrift: Ansichten (außer Leseansicht) scrollen, statt Inhalte zu quetschen oder zu überdecken */
+#choose,#info,#settings,#exactPrayer,#plan,#preparation,#purityInfo,#done{overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none}
+#choose::-webkit-scrollbar,#info::-webkit-scrollbar,#settings::-webkit-scrollbar,#exactPrayer::-webkit-scrollbar,#plan::-webkit-scrollbar,#preparation::-webkit-scrollbar,#purityInfo::-webkit-scrollbar,#done::-webkit-scrollbar{display:none}
+#choose>*,#info>*,#settings>*,#exactPrayer>*,#plan>*,#preparation>*,#purityInfo>*,#done>*{flex-shrink:0!important}
+#settingsClose{position:sticky;bottom:0;z-index:2;box-shadow:0 -10px 14px var(--paper)}
+#home{overflow-y:auto}
+@media(orientation:landscape) and (max-height:500px){#home{display:flex!important;flex-direction:column;scrollbar-width:none}#home::-webkit-scrollbar{display:none}#home>*{flex-shrink:0}#prayerChoices{flex:1 0 auto;grid-auto-rows:auto}#timesGrid .time-cell{padding:6px 4px;gap:2px}#timesGrid .time-cell strong{font-size:22px}#timesGrid .time-primary{font-size:12px}#timesGrid .time-traditional{font-size:10px}#prayerChoices button{padding:8px 6px}}
+@media(max-width:550px){#tempoPanel .tempo-editor-controls{display:flex!important;flex-direction:column;gap:6px}#tempoPanel .tempo-editor-controls>*{grid-column:auto!important;grid-row:auto!important}#tempoPanel .tempo-editor-controls{align-items:stretch!important}#tempoPanel .tempo-editor-controls>.setting-row:not(.scope-row){flex-direction:row!important;align-items:center!important;justify-content:space-between!important}#tempoPanel .scope-row{align-items:stretch!important}#tempoPanel #learnSectionTempo{align-self:flex-start}#tempoPanel{flex:none!important;grid-template-rows:auto!important}#tempoPanel .demo{min-height:240px}}
+.preparation-choices button{min-width:0}.preparation-choices strong,.preparation-choices span{overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto;max-width:100%}
+#preparation .preparation-choices{flex:1 0 auto}
+@media(max-width:400px){.preparation-choices{grid-template-columns:minmax(0,1fr)}.preparation-choices button{padding:12px 14px;gap:4px}}

@@ -25,7 +25,7 @@ jobs:
           python-version: "3.12"
       - name: Diyanet-Zeiten erneuern (nur monatlich; bei Fehler bleiben die gespeicherten)
         if: github.event_name != 'push'
-        timeout-minutes: 8
+        timeout-minutes: 20
         continue-on-error: true
         run: python3 diyanet.py || git checkout -- web/zeiten
       - uses: actions/configure-pages@v5

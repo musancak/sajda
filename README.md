@@ -7,7 +7,7 @@ Eine Web-App, die Schritt für Schritt durch das Gebet führt – ruhig, gut les
 ## Funktionen
 
 - **Geführtes Gebet** für alle Gebete und Varianten (Farz, Sünnet, Vitir), mit Absicht, Rezitationen in Umschrift und Erklärungen zu jeder Haltung
-- **Gebetszeiten** nach DITIB/Diyanet für 43 deutsche Städte oder berechnet nach Muslim World League, Umm al-Qura und der ägyptischen Behörde – für eine Stadt oder den eigenen Standort
+- **Gebetszeiten** nach DITIB/Diyanet für 43 deutsche Städte und alle 81 Provinzen der Türkei (jeweils in Ortszeit) oder berechnet nach Muslim World League, Umm al-Qura und der ägyptischen Behörde – für eine Stadt oder den eigenen Standort
 - **Sechs Sprachen:** Deutsch, Türkisch, Englisch, Französisch, Spanisch, Arabisch (von rechts nach links)
 - **Lesetempo:** Markierung im eigenen Tempo, auf Wunsch per Aufnahme eingelernt
 - **Fokus-Modus** beim Beten und **Kurzanleitung** beim ersten Öffnen

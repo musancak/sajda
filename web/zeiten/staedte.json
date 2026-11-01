@@ -2,6 +2,8 @@
 {
 "slug": "aachen",
 "name": "Aachen",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 50.776,
 "lon": 6.084,
 "diyanet": 33305,
@@ -10,6 +12,8 @@
 {
 "slug": "augsburg",
 "name": "Augsburg",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 48.371,
 "lon": 10.898,
 "diyanet": 11036,
@@ -18,6 +22,8 @@
 {
 "slug": "berlin",
 "name": "Berlin",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 52.52,
 "lon": 13.405,
 "diyanet": 11002,
@@ -26,6 +32,8 @@
 {
 "slug": "bielefeld",
 "name": "Bielefeld",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 52.03,
 "lon": 8.532,
 "diyanet": 11003,
@@ -34,6 +42,8 @@
 {
 "slug": "bochum",
 "name": "Bochum",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 51.482,
 "lon": 7.216,
 "diyanet": 11126,
@@ -42,6 +52,8 @@
 {
 "slug": "bonn",
 "name": "Bonn",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 50.737,
 "lon": 7.098,
 "diyanet": 11004,
@@ -50,6 +62,8 @@
 {
 "slug": "braunschweig",
 "name": "Braunschweig",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 52.269,
 "lon": 10.521,
 "diyanet": 16754,
@@ -58,6 +72,8 @@
 {
 "slug": "bremen",
 "name": "Bremen",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 53.079,
 "lon": 8.802,
 "diyanet": 11005,
@@ -66,6 +82,8 @@
 {
 "slug": "darmstadt",
 "name": "Darmstadt",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 49.873,
 "lon": 8.651,
 "diyanet": 11079,
@@ -74,6 +92,8 @@
 {
 "slug": "dortmund",
 "name": "Dortmund",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 51.514,
 "lon": 7.468,
 "diyanet": 11006,
@@ -82,6 +102,8 @@
 {
 "slug": "dresden",
 "name": "Dresden",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 51.05,
 "lon": 13.738,
 "diyanet": 11035,
@@ -90,6 +112,8 @@
 {
 "slug": "duisburg",
 "name": "Duisburg",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 51.434,
 "lon": 6.762,
 "diyanet": 11007,
@@ -98,6 +122,8 @@
 {
 "slug": "duesseldorf",
 "name": "Düsseldorf",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 51.227,
 "lon": 6.773,
 "diyanet": 11008,
@@ -106,6 +132,8 @@
 {
 "slug": "essen",
 "name": "Essen",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 51.456,
 "lon": 7.012,
 "diyanet": 11009,
@@ -114,6 +142,8 @@
 {
 "slug": "frankfurt-am-main",
 "name": "Frankfurt am Main",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 50.11,
 "lon": 8.682,
 "diyanet": 11010,
@@ -122,6 +152,8 @@
 {
 "slug": "freiburg",
 "name": "Freiburg",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 47.999,
 "lon": 7.842,
 "diyanet": 11011,
@@ -130,6 +162,8 @@
 {
 "slug": "gelsenkirchen",
 "name": "Gelsenkirchen",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 51.518,
 "lon": 7.086,
 "diyanet": 11037,
@@ -138,6 +172,8 @@
 {
 "slug": "hamburg",
 "name": "Hamburg",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 53.551,
 "lon": 9.994,
 "diyanet": 11012,
@@ -146,6 +182,8 @@
 {
 "slug": "hamm",
 "name": "Hamm",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 51.681,
 "lon": 7.82,
 "diyanet": 11127,
@@ -154,6 +192,8 @@
 {
 "slug": "hannover",
 "name": "Hannover",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 52.376,
 "lon": 9.732,
 "diyanet": 11013,
@@ -162,6 +202,8 @@
 {
 "slug": "heidelberg",
 "name": "Heidelberg",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 49.399,
 "lon": 8.672,
 "diyanet": 11033,
@@ -170,6 +212,8 @@
 {
 "slug": "heilbronn",
 "name": "Heilbronn",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 49.142,
 "lon": 9.219,
 "diyanet": 11051,
@@ -178,6 +222,8 @@
 {
 "slug": "karlsruhe",
 "name": "Karlsruhe",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 49.007,
 "lon": 8.404,
 "diyanet": 11014,
@@ -186,6 +232,8 @@
 {
 "slug": "kassel",
 "name": "Kassel",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 51.312,
 "lon": 9.48,
 "diyanet": 11015,
@@ -194,6 +242,8 @@
 {
 "slug": "kiel",
 "name": "Kiel",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 54.323,
 "lon": 10.123,
 "diyanet": 11016,
@@ -202,6 +252,8 @@
 {
 "slug": "krefeld",
 "name": "Krefeld",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 51.339,
 "lon": 6.586,
 "diyanet": 11066,
@@ -210,6 +262,8 @@
 {
 "slug": "koeln",
 "name": "Köln",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 50.938,
 "lon": 6.96,
 "diyanet": 11019,
@@ -218,6 +272,8 @@
 {
 "slug": "leipzig",
 "name": "Leipzig",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 51.34,
 "lon": 12.375,
 "diyanet": 11100,
@@ -226,6 +282,8 @@
 {
 "slug": "ludwigsburg",
 "name": "Ludwigsburg",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 48.897,
 "lon": 9.192,
 "diyanet": 11048,
@@ -234,6 +292,8 @@
 {
 "slug": "ludwigshafen",
 "name": "Ludwigshafen",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 49.477,
 "lon": 8.445,
 "diyanet": 11094,
@@ -242,6 +302,8 @@
 {
 "slug": "mainz",
 "name": "Mainz",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 49.993,
 "lon": 8.247,
 "diyanet": 11020,
@@ -250,6 +312,8 @@
 {
 "slug": "mannheim",
 "name": "Mannheim",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 49.488,
 "lon": 8.466,
 "diyanet": 11021,
@@ -258,6 +322,8 @@
 {
 "slug": "muenchen",
 "name": "München",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 48.137,
 "lon": 11.576,
 "diyanet": 11022,
@@ -266,6 +332,8 @@
 {
 "slug": "muenster",
 "name": "Münster",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 51.961,
 "lon": 7.626,
 "diyanet": 11023,
@@ -274,6 +342,8 @@
 {
 "slug": "nuernberg",
 "name": "Nürnberg",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 49.452,
 "lon": 11.077,
 "diyanet": 11024,
@@ -282,6 +352,8 @@
 {
 "slug": "offenbach",
 "name": "Offenbach",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 50.096,
 "lon": 8.766,
 "diyanet": 10569,
@@ -290,6 +362,8 @@
 {
 "slug": "pforzheim",
 "name": "Pforzheim",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 48.892,
 "lon": 8.695,
 "diyanet": 11119,
@@ -298,6 +372,8 @@
 {
 "slug": "reutlingen",
 "name": "Reutlingen",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 48.491,
 "lon": 9.204,
 "diyanet": 11042,
@@ -306,6 +382,8 @@
 {
 "slug": "saarbruecken",
 "name": "Saarbrücken",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 49.24,
 "lon": 6.997,
 "diyanet": 11026,
@@ -314,6 +392,8 @@
 {
 "slug": "stuttgart",
 "name": "Stuttgart",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 48.776,
 "lon": 9.183,
 "diyanet": 11027,
@@ -322,6 +402,8 @@
 {
 "slug": "ulm",
 "name": "Ulm",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 48.401,
 "lon": 9.988,
 "diyanet": 11028,
@@ -330,6 +412,8 @@
 {
 "slug": "wiesbaden",
 "name": "Wiesbaden",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 50.082,
 "lon": 8.24,
 "diyanet": 11056,
@@ -338,9 +422,821 @@
 {
 "slug": "wuppertal",
 "name": "Wuppertal",
+"land": "DE",
+"tz": "Europe/Berlin",
 "lat": 51.256,
 "lon": 7.151,
 "diyanet": 11031,
 "url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11031/wuppertal-icin-namaz-vakti"
+},
+{
+"slug": "tr-adana",
+"name": "Adana",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 37.0,
+"lon": 35.321,
+"diyanet": 9146,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9146/adana-icin-namaz-vakti"
+},
+{
+"slug": "tr-adiyaman",
+"name": "Adıyaman",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 37.764,
+"lon": 38.276,
+"diyanet": 9158,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9158/adiyaman-icin-namaz-vakti"
+},
+{
+"slug": "tr-afyonkarahisar",
+"name": "Afyonkarahisar",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 38.757,
+"lon": 30.538,
+"diyanet": 9167,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9167/afyonkarahisar-icin-namaz-vakti"
+},
+{
+"slug": "tr-aksaray",
+"name": "Aksaray",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 38.369,
+"lon": 34.037,
+"diyanet": 9193,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9193/aksaray-icin-namaz-vakti"
+},
+{
+"slug": "tr-amasya",
+"name": "Amasya",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 40.65,
+"lon": 35.833,
+"diyanet": 9198,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9198/amasya-icin-namaz-vakti"
+},
+{
+"slug": "tr-ankara",
+"name": "Ankara",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 39.933,
+"lon": 32.859,
+"diyanet": 9206,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9206/ankara-icin-namaz-vakti"
+},
+{
+"slug": "tr-antalya",
+"name": "Antalya",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 36.897,
+"lon": 30.713,
+"diyanet": 9225,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9225/antalya-icin-namaz-vakti"
+},
+{
+"slug": "tr-ardahan",
+"name": "Ardahan",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 41.11,
+"lon": 42.702,
+"diyanet": 9238,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9238/ardahan-icin-namaz-vakti"
+},
+{
+"slug": "tr-artvin",
+"name": "Artvin",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 41.183,
+"lon": 41.818,
+"diyanet": 9246,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9246/artvin-icin-namaz-vakti"
+},
+{
+"slug": "tr-aydin",
+"name": "Aydın",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 37.845,
+"lon": 27.84,
+"diyanet": 9252,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9252/aydin-icin-namaz-vakti"
+},
+{
+"slug": "tr-agri",
+"name": "Ağrı",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 39.72,
+"lon": 43.051,
+"diyanet": 9185,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9185/agri-icin-namaz-vakti"
+},
+{
+"slug": "tr-balikesir",
+"name": "Balıkesir",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 39.648,
+"lon": 27.883,
+"diyanet": 9270,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9270/balikesir-icin-namaz-vakti"
+},
+{
+"slug": "tr-bartin",
+"name": "Bartın",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 41.636,
+"lon": 32.338,
+"diyanet": 9285,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9285/bartin-icin-namaz-vakti"
+},
+{
+"slug": "tr-batman",
+"name": "Batman",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 37.887,
+"lon": 41.132,
+"diyanet": 9288,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9288/batman-icin-namaz-vakti"
+},
+{
+"slug": "tr-bayburt",
+"name": "Bayburt",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 40.256,
+"lon": 40.225,
+"diyanet": 9295,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9295/bayburt-icin-namaz-vakti"
+},
+{
+"slug": "tr-bilecik",
+"name": "Bilecik",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 40.142,
+"lon": 29.979,
+"diyanet": 9297,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9297/bilecik-icin-namaz-vakti"
+},
+{
+"slug": "tr-bingoel",
+"name": "Bingöl",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 38.885,
+"lon": 40.498,
+"diyanet": 9303,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9303/bingol-icin-namaz-vakti"
+},
+{
+"slug": "tr-bitlis",
+"name": "Bitlis",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 38.401,
+"lon": 42.108,
+"diyanet": 9311,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9311/bitlis-icin-namaz-vakti"
+},
+{
+"slug": "tr-bolu",
+"name": "Bolu",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 40.736,
+"lon": 31.607,
+"diyanet": 9315,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9315/bolu-icin-namaz-vakti"
+},
+{
+"slug": "tr-burdur",
+"name": "Burdur",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 37.721,
+"lon": 30.29,
+"diyanet": 9327,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9327/burdur-icin-namaz-vakti"
+},
+{
+"slug": "tr-bursa",
+"name": "Bursa",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 40.183,
+"lon": 29.067,
+"diyanet": 9335,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9335/bursa-icin-namaz-vakti"
+},
+{
+"slug": "tr-denizli",
+"name": "Denizli",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 37.784,
+"lon": 29.096,
+"diyanet": 9392,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9392/denizli-icin-namaz-vakti"
+},
+{
+"slug": "tr-diyarbakir",
+"name": "Diyarbakır",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 37.914,
+"lon": 40.23,
+"diyanet": 9402,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9402/diyarbakir-icin-namaz-vakti"
+},
+{
+"slug": "tr-duezce",
+"name": "Düzce",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 40.844,
+"lon": 31.157,
+"diyanet": 9414,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9414/duzce-icin-namaz-vakti"
+},
+{
+"slug": "tr-edirne",
+"name": "Edirne",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 41.677,
+"lon": 26.556,
+"diyanet": 9419,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9419/edirne-icin-namaz-vakti"
+},
+{
+"slug": "tr-elazig",
+"name": "Elazığ",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 38.675,
+"lon": 39.223,
+"diyanet": 9432,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9432/elazig-icin-namaz-vakti"
+},
+{
+"slug": "tr-erzincan",
+"name": "Erzincan",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 39.75,
+"lon": 39.5,
+"diyanet": 9440,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9440/erzincan-icin-namaz-vakti"
+},
+{
+"slug": "tr-erzurum",
+"name": "Erzurum",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 39.905,
+"lon": 41.268,
+"diyanet": 9451,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9451/erzurum-icin-namaz-vakti"
+},
+{
+"slug": "tr-eskisehir",
+"name": "Eskişehir",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 39.777,
+"lon": 30.521,
+"diyanet": 9470,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9470/eskisehir-icin-namaz-vakti"
+},
+{
+"slug": "tr-gaziantep",
+"name": "Gaziantep",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 37.066,
+"lon": 37.383,
+"diyanet": 9479,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9479/gaziantep-icin-namaz-vakti"
+},
+{
+"slug": "tr-giresun",
+"name": "Giresun",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 40.913,
+"lon": 38.39,
+"diyanet": 9494,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9494/giresun-icin-namaz-vakti"
+},
+{
+"slug": "tr-guemueshane",
+"name": "Gümüşhane",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 40.46,
+"lon": 39.481,
+"diyanet": 9501,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9501/gumushane-icin-namaz-vakti"
+},
+{
+"slug": "tr-hakkari",
+"name": "Hakkari",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 37.574,
+"lon": 43.741,
+"diyanet": 9507,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9507/hakkari-icin-namaz-vakti"
+},
+{
+"slug": "tr-hatay",
+"name": "Hatay",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 36.202,
+"lon": 36.16,
+"diyanet": 20089,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/20089/hatay-icin-namaz-vakti"
+},
+{
+"slug": "tr-isparta",
+"name": "Isparta",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 37.764,
+"lon": 30.556,
+"diyanet": 9528,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9528/isparta-icin-namaz-vakti"
+},
+{
+"slug": "tr-igdir",
+"name": "Iğdır",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 39.92,
+"lon": 44.045,
+"diyanet": 9522,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9522/igdir-icin-namaz-vakti"
+},
+{
+"slug": "tr-kahramanmaras",
+"name": "Kahramanmaraş",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 37.586,
+"lon": 36.937,
+"diyanet": 9577,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9577/kahramanmaras-icin-namaz-vakti"
+},
+{
+"slug": "tr-karabuek",
+"name": "Karabük",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 41.204,
+"lon": 32.627,
+"diyanet": 9581,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9581/karabuk-icin-namaz-vakti"
+},
+{
+"slug": "tr-karaman",
+"name": "Karaman",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 37.181,
+"lon": 33.215,
+"diyanet": 9587,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9587/karaman-icin-namaz-vakti"
+},
+{
+"slug": "tr-kars",
+"name": "Kars",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 40.608,
+"lon": 43.097,
+"diyanet": 9594,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9594/kars-icin-namaz-vakti"
+},
+{
+"slug": "tr-kastamonu",
+"name": "Kastamonu",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 41.389,
+"lon": 33.783,
+"diyanet": 9609,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9609/kastamonu-icin-namaz-vakti"
+},
+{
+"slug": "tr-kayseri",
+"name": "Kayseri",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 38.721,
+"lon": 35.487,
+"diyanet": 9620,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9620/kayseri-icin-namaz-vakti"
+},
+{
+"slug": "tr-kilis",
+"name": "Kilis",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 36.718,
+"lon": 37.121,
+"diyanet": 9629,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9629/kilis-icin-namaz-vakti"
+},
+{
+"slug": "tr-kocaeli",
+"name": "Kocaeli",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 40.765,
+"lon": 29.94,
+"diyanet": 9654,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9654/kocaeli-icin-namaz-vakti"
+},
+{
+"slug": "tr-konya",
+"name": "Konya",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 37.871,
+"lon": 32.485,
+"diyanet": 9676,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9676/konya-icin-namaz-vakti"
+},
+{
+"slug": "tr-kuetahya",
+"name": "Kütahya",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 39.42,
+"lon": 29.983,
+"diyanet": 9689,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9689/kutahya-icin-namaz-vakti"
+},
+{
+"slug": "tr-kirklareli",
+"name": "Kırklareli",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 41.735,
+"lon": 27.225,
+"diyanet": 9638,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9638/kirklareli-icin-namaz-vakti"
+},
+{
+"slug": "tr-kirikkale",
+"name": "Kırıkkale",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 39.846,
+"lon": 33.515,
+"diyanet": 9635,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9635/kirikkale-icin-namaz-vakti"
+},
+{
+"slug": "tr-kirsehir",
+"name": "Kırşehir",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 39.146,
+"lon": 34.161,
+"diyanet": 9646,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9646/kirsehir-icin-namaz-vakti"
+},
+{
+"slug": "tr-malatya",
+"name": "Malatya",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 38.355,
+"lon": 38.309,
+"diyanet": 9703,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9703/malatya-icin-namaz-vakti"
+},
+{
+"slug": "tr-manisa",
+"name": "Manisa",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 38.612,
+"lon": 27.426,
+"diyanet": 9716,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9716/manisa-icin-namaz-vakti"
+},
+{
+"slug": "tr-mardin",
+"name": "Mardin",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 37.313,
+"lon": 40.735,
+"diyanet": 9726,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9726/mardin-icin-namaz-vakti"
+},
+{
+"slug": "tr-mersin",
+"name": "Mersin",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 36.812,
+"lon": 34.641,
+"diyanet": 9737,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9737/mersin-icin-namaz-vakti"
+},
+{
+"slug": "tr-mugla",
+"name": "Muğla",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 37.215,
+"lon": 28.364,
+"diyanet": 9747,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9747/mugla-icin-namaz-vakti"
+},
+{
+"slug": "tr-mus",
+"name": "Muş",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 38.746,
+"lon": 41.506,
+"diyanet": 9755,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9755/mus-icin-namaz-vakti"
+},
+{
+"slug": "tr-nevsehir",
+"name": "Nevşehir",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 38.625,
+"lon": 34.712,
+"diyanet": 9760,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9760/nevsehir-icin-namaz-vakti"
+},
+{
+"slug": "tr-nigde",
+"name": "Niğde",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 37.966,
+"lon": 34.679,
+"diyanet": 9766,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9766/nigde-icin-namaz-vakti"
+},
+{
+"slug": "tr-ordu",
+"name": "Ordu",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 40.986,
+"lon": 37.88,
+"diyanet": 9782,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9782/ordu-icin-namaz-vakti"
+},
+{
+"slug": "tr-osmaniye",
+"name": "Osmaniye",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 37.074,
+"lon": 36.248,
+"diyanet": 9788,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9788/osmaniye-icin-namaz-vakti"
+},
+{
+"slug": "tr-rize",
+"name": "Rize",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 41.025,
+"lon": 40.517,
+"diyanet": 9799,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9799/rize-icin-namaz-vakti"
+},
+{
+"slug": "tr-sakarya",
+"name": "Sakarya",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 40.774,
+"lon": 30.394,
+"diyanet": 9807,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9807/sakarya-icin-namaz-vakti"
+},
+{
+"slug": "tr-samsun",
+"name": "Samsun",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 41.287,
+"lon": 36.33,
+"diyanet": 9819,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9819/samsun-icin-namaz-vakti"
+},
+{
+"slug": "tr-siirt",
+"name": "Siirt",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 37.933,
+"lon": 41.946,
+"diyanet": 9839,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9839/siirt-icin-namaz-vakti"
+},
+{
+"slug": "tr-sinop",
+"name": "Sinop",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 42.027,
+"lon": 35.151,
+"diyanet": 9847,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9847/sinop-icin-namaz-vakti"
+},
+{
+"slug": "tr-sivas",
+"name": "Sivas",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 39.748,
+"lon": 37.017,
+"diyanet": 9868,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9868/sivas-icin-namaz-vakti"
+},
+{
+"slug": "tr-tekirdag",
+"name": "Tekirdağ",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 40.978,
+"lon": 27.511,
+"diyanet": 9879,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9879/tekirdag-icin-namaz-vakti"
+},
+{
+"slug": "tr-tokat",
+"name": "Tokat",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 40.314,
+"lon": 36.554,
+"diyanet": 9887,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9887/tokat-icin-namaz-vakti"
+},
+{
+"slug": "tr-trabzon",
+"name": "Trabzon",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 41.003,
+"lon": 39.717,
+"diyanet": 9905,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9905/trabzon-icin-namaz-vakti"
+},
+{
+"slug": "tr-tunceli",
+"name": "Tunceli",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 39.108,
+"lon": 39.548,
+"diyanet": 9914,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9914/tunceli-icin-namaz-vakti"
+},
+{
+"slug": "tr-usak",
+"name": "Uşak",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 38.682,
+"lon": 29.408,
+"diyanet": 9919,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9919/usak-icin-namaz-vakti"
+},
+{
+"slug": "tr-van",
+"name": "Van",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 38.501,
+"lon": 43.373,
+"diyanet": 9930,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9930/van-icin-namaz-vakti"
+},
+{
+"slug": "tr-yalova",
+"name": "Yalova",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 40.655,
+"lon": 29.277,
+"diyanet": 9935,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9935/yalova-icin-namaz-vakti"
+},
+{
+"slug": "tr-yozgat",
+"name": "Yozgat",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 39.82,
+"lon": 34.808,
+"diyanet": 9949,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9949/yozgat-icin-namaz-vakti"
+},
+{
+"slug": "tr-zonguldak",
+"name": "Zonguldak",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 41.456,
+"lon": 31.799,
+"diyanet": 9955,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9955/zonguldak-icin-namaz-vakti"
+},
+{
+"slug": "tr-canakkale",
+"name": "Çanakkale",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 40.155,
+"lon": 26.414,
+"diyanet": 9352,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9352/canakkale-icin-namaz-vakti"
+},
+{
+"slug": "tr-cankiri",
+"name": "Çankırı",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 40.601,
+"lon": 33.614,
+"diyanet": 9359,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9359/cankiri-icin-namaz-vakti"
+},
+{
+"slug": "tr-corum",
+"name": "Çorum",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 40.55,
+"lon": 34.955,
+"diyanet": 9370,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9370/corum-icin-namaz-vakti"
+},
+{
+"slug": "tr-istanbul",
+"name": "İstanbul",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 41.008,
+"lon": 28.978,
+"diyanet": 9541,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9541/istanbul-icin-namaz-vakti"
+},
+{
+"slug": "tr-izmir",
+"name": "İzmir",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 38.423,
+"lon": 27.143,
+"diyanet": 9560,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9560/izmir-icin-namaz-vakti"
+},
+{
+"slug": "tr-sanliurfa",
+"name": "Şanlıurfa",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 37.159,
+"lon": 38.797,
+"diyanet": 9831,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9831/sanliurfa-icin-namaz-vakti"
+},
+{
+"slug": "tr-sirnak",
+"name": "Şırnak",
+"land": "TR",
+"tz": "Europe/Istanbul",
+"lat": 37.519,
+"lon": 42.454,
+"diyanet": 9854,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/9854/sirnak-icin-namaz-vakti"
 }
 ]
