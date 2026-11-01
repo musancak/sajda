@@ -87,3 +87,19 @@
 .bald-kachel strong{color:#183c33;font-size:14px}
 .bald-kachel small{display:none}
 .bald-marke{order:1;font-size:10px;font-weight:700;letter-spacing:.3px;color:#204f40;background:#e9eddf;border-radius:999px;padding:2px 7px;white-space:nowrap}
+/* Fokus beim Beten (fokus.js) */
+.fokus-leiste{display:none}
+body.fokus .fokus-leiste{display:flex;align-items:center;gap:10px;flex:none;min-height:36px}
+.fokus-raus{width:36px;height:36px;border-radius:12px;border:1px solid #cbd3c7;background:#fffcf5;font-size:22px;line-height:1;color:#183c33;padding:0}
+.fokus-stand{flex:1;font-size:13px;color:#617361}
+.fokus-mehr{border:1px solid #cbd3c7;background:#fffcf5;border-radius:999px;padding:6px 12px;font-size:13px;color:#183c33}
+body.fokus:not(.fokus-mehr-offen) header,
+body.fokus:not(.fokus-mehr-offen) #reader>.meta,
+body.fokus:not(.fokus-mehr-offen) .section-tempo,
+body.fokus:not(.fokus-mehr-offen) #activeTempo,
+body.fokus:not(.fokus-mehr-offen) #tempoSettings,
+body.fokus:not(.fokus-mehr-offen) #paceLabel{display:none!important}
+body.fokus:not(.fokus-mehr-offen) .app{gap:6px;padding-top:max(8px,env(safe-area-inset-top))}
+body.fokus:not(.fokus-mehr-offen) .pacing{min-height:0}
+body.fokus:not(.fokus-mehr-offen) #pacePlay{padding:4px 10px;font-size:12px}
+body.fokus.fokus-mehr-offen .fokus-stand{visibility:hidden}
