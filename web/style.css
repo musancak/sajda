@@ -125,3 +125,8 @@ body.fokus.fokus-mehr-offen .fokus-stand{visibility:hidden}
 .g-punkte i{width:7px;height:7px;border-radius:50%;background:#cbd3c7}
 .g-punkte i.an{background:#204f40;width:18px;border-radius:4px}
 [dir=rtl] .fokus-raus{transform:scaleX(-1)}
+.legal-link{margin-top:auto;align-self:center;font-size:13px;color:#647567;text-decoration:none;padding:4px 8px}.legal-link+#settingsClose{margin-top:0}
+/* Große Schrift / kleines Handy: Startseite scrollt, statt die Gebetskacheln auf 0 zu quetschen */
+@media(orientation:portrait){#home{overflow-y:auto;scrollbar-width:none}#home::-webkit-scrollbar{display:none}#home>*{flex-shrink:0}#prayerChoices{flex:1 0 auto;grid-template-rows:repeat(3,auto);align-content:stretch}}
+#prayerChoices .prayer-primary,.time-cell .time-primary{overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}
+#homeShortcuts button{hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word}
