@@ -124,3 +124,4 @@ body.fokus.fokus-mehr-offen .fokus-stand{visibility:hidden}
 .g-punkte{flex:1;display:flex;justify-content:center;gap:6px}
 .g-punkte i{width:7px;height:7px;border-radius:50%;background:#cbd3c7}
 .g-punkte i.an{background:#204f40;width:18px;border-radius:4px}
+[dir=rtl] .fokus-raus{transform:scaleX(-1)}

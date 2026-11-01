@@ -5,6 +5,9 @@ Object.assign(UI.de,{app:APP_NAME,appSub:'Gebetsbegleiter',soon:'Bald verfügbar
 Object.assign(UI.en,{app:APP_NAME,appSub:'Prayer companion',soon:'Coming soon',soonDuas:'Duas',soonDuasSub:'Supplications for every day',soonDhikr:'Dhikr',soonDhikrSub:'Counter & remembrance'});
 Object.assign(UI.tr,{app:APP_NAME,appSub:'Namaz rehberi',soon:'Yakında',soonDuas:'Dualar',soonDuasSub:'Günlük dualar',soonDhikr:'Zikir',soonDhikrSub:'Sayaç ve zikir'});
 document.title=APP_NAME;
+// Arabisch von rechts nach links
+const vorherSprache=applyLanguage;
+applyLanguage=function(){vorherSprache();document.documentElement.dir=state.explanationLanguage==='ar'?'rtl':'ltr'};
 
 const vorherHomeChoices=drawHomeChoices;
 drawHomeChoices=function(){vorherHomeChoices();
