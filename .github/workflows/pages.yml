@@ -23,7 +23,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Diyanet-Zeiten erneuern (bei Fehler bleiben die gespeicherten)
+      - name: Diyanet-Zeiten erneuern (nur monatlich; bei Fehler bleiben die gespeicherten)
+        if: github.event_name != 'push'
+        timeout-minutes: 8
+        continue-on-error: true
         run: python3 diyanet.py || git checkout -- web/zeiten
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
