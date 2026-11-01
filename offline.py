@@ -1,21 +1,17 @@
 # Macht web/ zur Homescreen-App, die offline läuft: Icons, manifest.webmanifest, sw.js
 # und die nötigen Zeilen in index.html. Nach jeder Änderung an web/ erneut ausführen.
 # Aufruf mit einem Python, das Pillow hat (z. B. ~/projects/Cockpit-stimme/venv-f5).
-import hashlib, json, os
-from PIL import Image, ImageDraw
+import hashlib, json, os, sys
+from PIL import Image
 
 HIER = os.path.dirname(os.path.abspath(__file__))
 WEB = os.path.join(HIER, "web")
 
-# Icon wie icon.svg: grüner Grund, cremefarbene Mondsichel
-N = 1024
-img = Image.new("RGB", (N, N), (35, 94, 77))
-maske = Image.new("L", (N, N), 0)
-d = ImageDraw.Draw(maske)
-d.ellipse((220, 190, 800, 770), fill=255)
-d.ellipse((400, 120, 920, 640), fill=0)
-img.paste((248, 247, 242), (0, 0), maske)
-for g in (180, 192, 512):
+# Icon: Hürmet-Landschaft zur Morgendämmerung mit Mondsichel (tools/symbol.py)
+sys.path.insert(0, os.path.join(HIER, "tools"))
+import symbol as sajda_symbol
+img = sajda_symbol.zeichnen()
+for g in (32, 180, 192, 512):
     img.resize((g, g), Image.LANCZOS).save(os.path.join(WEB, f"icon-{g}.png"))
 
 manifest = {
