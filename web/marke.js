@@ -7,7 +7,7 @@ Object.assign(UI.tr,{app:APP_NAME,appSub:'Namaz rehberi',soon:'Yakında',soonDua
 document.title=APP_NAME;
 // Arabisch von rechts nach links
 const vorherSprache=applyLanguage;
-applyLanguage=function(){vorherSprache();document.documentElement.dir=state.explanationLanguage==='ar'?'rtl':'ltr'};
+applyLanguage=function(){vorherSprache();document.title=APP_NAME+' – '+t('appSub');document.documentElement.dir=state.explanationLanguage==='ar'?'rtl':'ltr'};
 
 const vorherHomeChoices=drawHomeChoices;
 drawHomeChoices=function(){vorherHomeChoices();
