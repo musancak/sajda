@@ -1,0 +1,7 @@
+const CACHE='gebet-82723164';
+const DATEIEN=['./',"app.js","content.js","diyanet-stuttgart.json","features-i18n.js","home-features.js","i18n.js","icon-180.png","icon-192.png","icon-512.png","icon.svg","index.html","init.js","intention-start.js","intentions.js","languages.js","learn.js","manifest.webmanifest","pacing.js","prayer-labels.js","prayer-plan.js","prayer-routes.js","preparation-content.js","preparation.js","start-countdown.js","steps.js","style.css","tempo.js","voice-timing.js","assets/ALLAHU_AKBAR_1-31.png","assets/Gebetshaltung_Aufrecht-29.png","assets/Gebetshaltung_Dschalsa-27.png","assets/Gebetshaltung_Dschalsa_Finger_1_2_3-37.png","assets/Gebetshaltung_Qiam-33.png","assets/Gebetshaltung_Ruku_1-25.png","assets/Gebetshaltung_Salam_1-35.png","assets/Gebetshaltung_Sujud_1-24.png"];
+self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(DATEIEN.map(u=>new Request(u,{cache:'reload'})))));self.skipWaiting()});
+self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==CACHE).map(k=>caches.delete(k)))));self.clients.claim()});
+self.addEventListener('fetch',e=>{const r=e.request;if(r.method!=='GET'||new URL(r.url).origin!==location.origin)return;
+  if(r.url.endsWith('.json'))e.respondWith(fetch(r).then(a=>{const k=a.clone();caches.open(CACHE).then(c=>c.put(r,k));return a}).catch(()=>caches.match(r)));
+  else e.respondWith(caches.match(r,{ignoreSearch:true}).then(a=>a||fetch(r)))});
