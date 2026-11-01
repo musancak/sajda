@@ -1,8 +1,9 @@
 'use strict';
 const PrayerPlan=(()=>{
  const surahs=['kawthar','ikhlas','falaq','nas','nasr','asrSurah'];
- // Ab der 3. Rekat nur Fatiha, keine Zusatzsure – bei allen Gebeten (Wunsch des Nutzers)
- function slots(route){return [...new Set(route.seq.filter(s=>s.key==='fatiha2'&&s.r<=2).map(s=>s.r))];}
+ // Farz: ab der 3. Rekat nur Fatiha, keine Zusatzsure (Sünnet und Vitir behalten sie, hanefitisch)
+ const farz=route=>/Farz/.test(route.title||'');
+ function slots(route){return [...new Set(route.seq.filter(s=>s.key==='fatiha2'&&!(farz(route)&&s.r>2)).map(s=>s.r))];}
  function defaults(base){const open=slots(base),choices=Object.fromEntries(open.map(r=>[r,'none']));for(const s of base.seq)if(surahs.includes(s.key)&&open.includes(s.r))choices[s.r]=s.key;return choices;}
  function route(base,choices={}){const selected=defaults(base);for(const [r,key]of Object.entries(choices))if(r in selected&&(key==='none'||surahs.includes(key)))selected[r]=key;const seq=[];for(const s of base.seq){if(surahs.includes(s.key))continue;seq.push({...s});if(s.key==='fatiha2'&&surahs.includes(selected[s.r]))seq.push({...s,key:selected[s.r]});}return{...base,seq};}
  const zone='Europe/Berlin';

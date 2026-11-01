@@ -76,3 +76,14 @@
 #startCountdown{border:1px solid #ccd7c2;background:#f6f3ea;color:#183c33;border-radius:26px;padding:34px;max-width:min(90vw,480px);width:100%;box-shadow:0 18px 80px #102c3340}#startCountdown::backdrop{background:#183c3399;backdrop-filter:blur(4px)}.countdown-content{display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center}#countdownTitle{font-size:24px;line-height:1.3;margin:0}#countdownValue{font-size:clamp(100px,20vw,180px);font-weight:750;line-height:1.1;font-variant-numeric:tabular-nums}#cancelCountdown{padding:12px 24px;font-size:18px}#exactPrayer{justify-content:center}#exactPrayer>p{font-size:20px;max-width:45em}#exactPrayerChoices{display:grid;gap:14px}#exactPrayerChoices button{font-size:22px;font-weight:650;text-align:left;background:#e9eddf}#exactPrayerBack{align-self:flex-start}#reader:has(#pagebox [data-spoken=true]) #pacePlay:enabled{border-color:#69866a}
 
 #refreshTimes{font-size:13px;padding:9px 12px;max-width:155px;line-height:1.3}#tempoSettings{font-size:12px;line-height:1.2}
+.ort-dialog{border:1px solid #ccd7c2;background:#f6f3ea;color:#183c33;border-radius:24px;padding:24px;width:min(92vw,440px);box-shadow:0 18px 80px #102c3340}
+.ort-dialog::backdrop{background:#183c3399;backdrop-filter:blur(4px)}
+.ort-dialog h2{margin:0 0 16px;font-size:22px}
+.ort-dialog label{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;font-weight:600;font-size:14px;color:#617361}
+.ort-dialog select{font:inherit;font-size:17px;color:#183c33;padding:12px;border-radius:14px;border:1px solid #cbd3c7;background:#fffcf5}
+.ort-dialog .primary{width:100%;max-width:none;padding:14px;border-radius:16px;border:1px solid #204f40;font-size:17px}
+.bald{display:flex;gap:6px;flex:none}
+.bald-kachel{flex:1;min-width:0;border:1px dashed #cbd3c7;border-radius:14px;padding:7px 10px;display:flex;align-items:center;justify-content:center;gap:8px;color:#617361;background:#fffcf580}
+.bald-kachel strong{color:#183c33;font-size:14px}
+.bald-kachel small{display:none}
+.bald-marke{order:1;font-size:10px;font-weight:700;letter-spacing:.3px;color:#204f40;background:#e9eddf;border-radius:999px;padding:2px 7px;white-space:nowrap}

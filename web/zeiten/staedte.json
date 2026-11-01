@@ -1,0 +1,346 @@
+[
+{
+"slug": "aachen",
+"name": "Aachen",
+"lat": 50.776,
+"lon": 6.084,
+"diyanet": 33305,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/33305/aachen-icin-namaz-vakti"
+},
+{
+"slug": "augsburg",
+"name": "Augsburg",
+"lat": 48.371,
+"lon": 10.898,
+"diyanet": 11036,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11036/augsburg-icin-namaz-vakti"
+},
+{
+"slug": "berlin",
+"name": "Berlin",
+"lat": 52.52,
+"lon": 13.405,
+"diyanet": 11002,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11002/berlin-icin-namaz-vakti"
+},
+{
+"slug": "bielefeld",
+"name": "Bielefeld",
+"lat": 52.03,
+"lon": 8.532,
+"diyanet": 11003,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11003/bielefeld-icin-namaz-vakti"
+},
+{
+"slug": "bochum",
+"name": "Bochum",
+"lat": 51.482,
+"lon": 7.216,
+"diyanet": 11126,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11126/bochum-icin-namaz-vakti"
+},
+{
+"slug": "bonn",
+"name": "Bonn",
+"lat": 50.737,
+"lon": 7.098,
+"diyanet": 11004,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11004/bonn-icin-namaz-vakti"
+},
+{
+"slug": "braunschweig",
+"name": "Braunschweig",
+"lat": 52.269,
+"lon": 10.521,
+"diyanet": 16754,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/16754/braunschweig-icin-namaz-vakti"
+},
+{
+"slug": "bremen",
+"name": "Bremen",
+"lat": 53.079,
+"lon": 8.802,
+"diyanet": 11005,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11005/bremen-icin-namaz-vakti"
+},
+{
+"slug": "darmstadt",
+"name": "Darmstadt",
+"lat": 49.873,
+"lon": 8.651,
+"diyanet": 11079,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11079/darmstadt-icin-namaz-vakti"
+},
+{
+"slug": "dortmund",
+"name": "Dortmund",
+"lat": 51.514,
+"lon": 7.468,
+"diyanet": 11006,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11006/dortmund-icin-namaz-vakti"
+},
+{
+"slug": "dresden",
+"name": "Dresden",
+"lat": 51.05,
+"lon": 13.738,
+"diyanet": 11035,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11035/dresden-icin-namaz-vakti"
+},
+{
+"slug": "duisburg",
+"name": "Duisburg",
+"lat": 51.434,
+"lon": 6.762,
+"diyanet": 11007,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11007/duisburg-icin-namaz-vakti"
+},
+{
+"slug": "duesseldorf",
+"name": "Düsseldorf",
+"lat": 51.227,
+"lon": 6.773,
+"diyanet": 11008,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11008/dusseldorf-icin-namaz-vakti"
+},
+{
+"slug": "essen",
+"name": "Essen",
+"lat": 51.456,
+"lon": 7.012,
+"diyanet": 11009,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11009/essen-icin-namaz-vakti"
+},
+{
+"slug": "frankfurt-am-main",
+"name": "Frankfurt am Main",
+"lat": 50.11,
+"lon": 8.682,
+"diyanet": 11010,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11010/frankfurt-icin-namaz-vakti"
+},
+{
+"slug": "freiburg",
+"name": "Freiburg",
+"lat": 47.999,
+"lon": 7.842,
+"diyanet": 11011,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11011/freiburg-icin-namaz-vakti"
+},
+{
+"slug": "gelsenkirchen",
+"name": "Gelsenkirchen",
+"lat": 51.518,
+"lon": 7.086,
+"diyanet": 11037,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11037/gelsenkirchen-icin-namaz-vakti"
+},
+{
+"slug": "hamburg",
+"name": "Hamburg",
+"lat": 53.551,
+"lon": 9.994,
+"diyanet": 11012,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11012/hamburg-icin-namaz-vakti"
+},
+{
+"slug": "hamm",
+"name": "Hamm",
+"lat": 51.681,
+"lon": 7.82,
+"diyanet": 11127,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11127/hamm-icin-namaz-vakti"
+},
+{
+"slug": "hannover",
+"name": "Hannover",
+"lat": 52.376,
+"lon": 9.732,
+"diyanet": 11013,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11013/hannover-icin-namaz-vakti"
+},
+{
+"slug": "heidelberg",
+"name": "Heidelberg",
+"lat": 49.399,
+"lon": 8.672,
+"diyanet": 11033,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11033/heidelberg-icin-namaz-vakti"
+},
+{
+"slug": "heilbronn",
+"name": "Heilbronn",
+"lat": 49.142,
+"lon": 9.219,
+"diyanet": 11051,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11051/heilbronn-icin-namaz-vakti"
+},
+{
+"slug": "karlsruhe",
+"name": "Karlsruhe",
+"lat": 49.007,
+"lon": 8.404,
+"diyanet": 11014,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11014/karlsruhe-icin-namaz-vakti"
+},
+{
+"slug": "kassel",
+"name": "Kassel",
+"lat": 51.312,
+"lon": 9.48,
+"diyanet": 11015,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11015/kassel-icin-namaz-vakti"
+},
+{
+"slug": "kiel",
+"name": "Kiel",
+"lat": 54.323,
+"lon": 10.123,
+"diyanet": 11016,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11016/kiel-icin-namaz-vakti"
+},
+{
+"slug": "krefeld",
+"name": "Krefeld",
+"lat": 51.339,
+"lon": 6.586,
+"diyanet": 11066,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11066/krefeld-icin-namaz-vakti"
+},
+{
+"slug": "koeln",
+"name": "Köln",
+"lat": 50.938,
+"lon": 6.96,
+"diyanet": 11019,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11019/koln-icin-namaz-vakti"
+},
+{
+"slug": "leipzig",
+"name": "Leipzig",
+"lat": 51.34,
+"lon": 12.375,
+"diyanet": 11100,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11100/leipzig-icin-namaz-vakti"
+},
+{
+"slug": "ludwigsburg",
+"name": "Ludwigsburg",
+"lat": 48.897,
+"lon": 9.192,
+"diyanet": 11048,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11048/ludwigsburg-icin-namaz-vakti"
+},
+{
+"slug": "ludwigshafen",
+"name": "Ludwigshafen",
+"lat": 49.477,
+"lon": 8.445,
+"diyanet": 11094,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11094/ludwigshafen-icin-namaz-vakti"
+},
+{
+"slug": "mainz",
+"name": "Mainz",
+"lat": 49.993,
+"lon": 8.247,
+"diyanet": 11020,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11020/mainz-icin-namaz-vakti"
+},
+{
+"slug": "mannheim",
+"name": "Mannheim",
+"lat": 49.488,
+"lon": 8.466,
+"diyanet": 11021,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11021/mannheim-icin-namaz-vakti"
+},
+{
+"slug": "muenchen",
+"name": "München",
+"lat": 48.137,
+"lon": 11.576,
+"diyanet": 11022,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11022/munchen-icin-namaz-vakti"
+},
+{
+"slug": "muenster",
+"name": "Münster",
+"lat": 51.961,
+"lon": 7.626,
+"diyanet": 11023,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11023/munster-icin-namaz-vakti"
+},
+{
+"slug": "nuernberg",
+"name": "Nürnberg",
+"lat": 49.452,
+"lon": 11.077,
+"diyanet": 11024,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11024/nurnberg-icin-namaz-vakti"
+},
+{
+"slug": "offenbach",
+"name": "Offenbach",
+"lat": 50.096,
+"lon": 8.766,
+"diyanet": 10569,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/10569/offenbach-icin-namaz-vakti"
+},
+{
+"slug": "pforzheim",
+"name": "Pforzheim",
+"lat": 48.892,
+"lon": 8.695,
+"diyanet": 11119,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11119/pforzheim-icin-namaz-vakti"
+},
+{
+"slug": "reutlingen",
+"name": "Reutlingen",
+"lat": 48.491,
+"lon": 9.204,
+"diyanet": 11042,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11042/reutlingen-icin-namaz-vakti"
+},
+{
+"slug": "saarbruecken",
+"name": "Saarbrücken",
+"lat": 49.24,
+"lon": 6.997,
+"diyanet": 11026,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11026/saarbrucken-icin-namaz-vakti"
+},
+{
+"slug": "stuttgart",
+"name": "Stuttgart",
+"lat": 48.776,
+"lon": 9.183,
+"diyanet": 11027,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11027/stuttgart-icin-namaz-vakti"
+},
+{
+"slug": "ulm",
+"name": "Ulm",
+"lat": 48.401,
+"lon": 9.988,
+"diyanet": 11028,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11028/ulm-icin-namaz-vakti"
+},
+{
+"slug": "wiesbaden",
+"name": "Wiesbaden",
+"lat": 50.082,
+"lon": 8.24,
+"diyanet": 11056,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11056/wiesbaden-icin-namaz-vakti"
+},
+{
+"slug": "wuppertal",
+"name": "Wuppertal",
+"lat": 51.256,
+"lon": 7.151,
+"diyanet": 11031,
+"url": "https://namazvakitleri.diyanet.gov.tr/tr-TR/11031/wuppertal-icin-namaz-vakti"
+}
+]
