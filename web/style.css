@@ -141,3 +141,33 @@ body.fokus.fokus-mehr-offen .fokus-stand{visibility:hidden}
 .preparation-choices button{min-width:0}.preparation-choices strong,.preparation-choices span{overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto;max-width:100%}
 #preparation .preparation-choices{flex:1 0 auto}
 @media(max-width:400px){.preparation-choices{grid-template-columns:minmax(0,1fr)}.preparation-choices button{padding:12px 14px;gap:4px}}
+/* Leseansicht: großer Start-Button über Zurück/Weiter, „Weiter“ ohne „Ja“ */
+#next{justify-content:center}
+#reader .pacing{flex-wrap:wrap;row-gap:8px}
+#reader #pacePlay{flex:1 0 100%;order:-1;min-height:60px;padding:12px 20px;font-size:20px;font-weight:800;text-align:center;border-radius:18px;border:2px solid #7d9a72;background:#e4ecdc;color:#183c33}
+#reader #pacePlay::before{content:'▶  '}
+#reader #pacePlay[aria-pressed=true]{background:#fffcf5;border-color:#cbd3c7}
+#reader #pacePlay[aria-pressed=true]::before{content:'❚❚  '}
+#reader #pacePlay:disabled{opacity:.4}
+body.fokus:not(.fokus-mehr-offen) #reader #pacePlay{padding:10px 16px;font-size:19px}
+@media(max-width:550px){#reader #pacePlay,body.fokus:not(.fokus-mehr-offen) #reader #pacePlay{min-height:52px;font-size:18px}}
+@media(orientation:landscape) and (max-height:650px){#reader #pacePlay,body.fokus:not(.fokus-mehr-offen) #reader #pacePlay{min-height:44px;font-size:16px;padding:6px 14px}}
+/* Kurzanleitung: Tempo-Beispiel und Stimm-Probe */
+.g-tempo{margin-bottom:14px}
+.g-tempo-text{background:#fffcf5;border:1px solid #e0e4d8;border-radius:16px;padding:12px 14px;font-size:24px;font-weight:650;line-height:1.4;min-height:3.2em;margin-bottom:10px;overflow-wrap:anywhere}
+.g-tempo input{width:100%;accent-color:#204f40}
+.g-tempo-skala{display:flex;justify-content:space-between;font-size:13px;color:#617361}
+.g-tempo-wert{text-align:center;font-size:14px;font-weight:700;margin:2px 0 8px}
+.g-wahl{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.g-wahl button{font-size:15px;padding:9px 10px;border-radius:12px;text-align:center}
+.g-wahl button.aktiv{background:#204f40;color:#fff;border-color:#204f40}
+.g-stimme{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:14px}
+.g-mic{width:84px;height:84px;border-radius:50%;padding:0;font-size:34px;border:2px solid #cbd3c7;background:#fffcf5;display:flex;align-items:center;justify-content:center}
+.g-mic.hoert{border-color:#7d9a72;background:#e4ecdc;animation:g-puls 1.4s ease-in-out infinite}
+.g-mic.ok{border-color:#204f40;background:#204f40;color:#fff;animation:none}
+@keyframes g-puls{50%{box-shadow:0 0 0 10px #7d9a7233}}
+.g-stimme-status{font-size:15px;color:#36574c;text-align:center;min-height:1.4em;margin:0}
+.g-stimme-hinweis{font-size:13px;color:#617361;text-align:center;margin:0}
+@media(max-height:700px){.g-tempo-text{font-size:20px}.g-mic{width:64px;height:64px;font-size:26px}}
+.g-punkte{min-width:0}
+@media(max-width:360px){.g-fuss{gap:6px}.g-punkte{gap:4px}.g-punkte i{width:5px;height:5px}.g-punkte i.an{width:12px}.g-skip{font-size:14px}.g-fuss .primary{padding:11px 14px}}
