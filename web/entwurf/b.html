@@ -1,0 +1,77 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Entwurf B · Karten</title><link rel="stylesheet" href="basis.css">
+<style>
+.kopf{padding-right:120px}
+.kopf small{display:block;font-size:13px;color:var(--muted);text-transform:capitalize}
+.kopf h1{margin:2px 0 0;font-size:32px;letter-spacing:-.03em}
+.stapel{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1.55fr 1fr .8fr .8fr;gap:10px;margin-top:14px}
+.karte{position:relative;border-radius:26px;padding:16px;text-align:left;display:flex;flex-direction:column;justify-content:space-between;background:var(--card);border:1px solid var(--line);box-shadow:0 6px 22px rgb(32 61 52/6%);overflow:hidden;min-height:0}
+.karte .titel{font-size:15px;font-weight:650;display:flex;align-items:center;gap:8px}
+.karte small{color:var(--muted);font-size:13px}
+.karte.gebet{grid-column:1/-1;background:linear-gradient(160deg,var(--oben),var(--unten));color:var(--text);border:0}
+.karte.gebet small{color:inherit;opacity:.8}
+#gUm{display:block}#gCount{font-size:58px;font-weight:300;letter-spacing:-.04em}
+.punkte{display:flex;justify-content:space-between;font-size:11px;opacity:.85}
+.punkte span{display:flex;flex-direction:column;align-items:center;gap:4px}
+.punkte i{width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.35}
+.punkte .jetzt i{opacity:1;box-shadow:0 0 0 4px rgb(255 255 255/30%)}
+.karte.kaza{grid-column:1/-1}
+.kaza-zahl{font-size:30px;font-weight:700;letter-spacing:-.03em}
+.balken{height:6px;border-radius:9px;background:var(--soft);overflow:hidden}.balken div{height:100%;background:var(--accent);border-radius:inherit}
+.karte.bald{opacity:.6;border-style:dashed;box-shadow:none}
+.detail{position:fixed;inset:0;z-index:20;background:var(--card);padding:max(14px,env(safe-area-inset-top)) 20px max(16px,env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:14px}
+.detail[hidden]{display:none}
+.detail.gebet{background:linear-gradient(170deg,var(--oben),var(--unten));color:var(--text)}
+.dkopf{display:flex;align-items:center;justify-content:space-between;padding-right:120px}
+.zu{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:rgb(32 61 52/8%)}
+.gebet .zu{background:rgb(255 255 255/20%)}
+.detail h2{margin:0;font-size:30px;letter-spacing:-.03em}
+.zeiten{display:grid;gap:6px;flex:1;align-content:center}
+.zeit{display:flex;justify-content:space-between;padding:14px 18px;border-radius:18px;background:rgb(255 255 255/14%);font-size:18px}
+.zeit.jetzt{background:rgb(255 255 255/32%);font-weight:700}
+.los{padding:18px;border-radius:22px;background:var(--accent);color:#fff;font-size:18px;font-weight:650;display:flex;justify-content:center;gap:10px;align-items:center}
+.gebet .los{background:rgb(255 255 255/90%);color:#183c33}
+::view-transition-group(*){animation-duration:.55s;animation-timing-function:var(--spring)}
+::view-transition-old(*),::view-transition-new(*){animation-duration:.3s;height:100%;object-fit:cover}
+</style></head><body>
+<div class="screen" id="seite">
+ <div class="kopf"><small id="datum"></small><h1 id="gruss"></h1></div>
+ <div class="stapel">
+  <button class="karte gebet press" id="kGebet" data-detail="gebet"><small id="gNaechst"></small><div><div id="gCount" class="num"></div><small id="gUm" class="num"></small></div><div class="punkte" id="gPunkte"></div></button>
+  <button class="karte kaza press" id="kKaza" data-detail="kaza"><span class="titel">Kaza</span><div style="display:flex;align-items:baseline;gap:8px"><span class="kaza-zahl num" id="kZahl"></span><small id="kText"></small></div><div class="balken"><div id="kBalken"></div></div></button>
+  <button class="karte press" data-detail="lernen"><span class="titel" id="lIcon">Lernen</span><small>Suren · Tempo</small></button>
+  <button class="karte press" data-detail="abdest"><span class="titel" id="aIcon">Abdest</span><small>Waschung · Gusül</small></button>
+  <button class="karte bald press"><span class="titel">Duas · Dhikr</span><small>bald</small></button>
+  <button class="karte bald press"><span class="titel">Ezan</span><small>Erinnerung · bald</small></button>
+ </div>
+</div>
+<div class="detail" id="detail" hidden></div>
+<script src="basis.js"></script>
+<script>
+function zeichnen(){const l=lage(),[o,u]=farben(l.m),dunkel=l.m<TAG.T[1]-10||l.m>TAG.T[4]+10;
+ for(const el of [document.documentElement]){el.style.setProperty('--oben',o);el.style.setProperty('--unten',u);el.style.setProperty('--text',dunkel?'#f4f1e8':'#183c33')}
+ const h=new Date().getHours();$('gruss').textContent=h<11?'Guten Morgen':h<17?'Guten Tag':'Guten Abend';
+ $('datum').textContent=new Date().toLocaleDateString('de-DE',{weekday:'long',day:'numeric',month:'long'})+' · '+TAG.hijri;
+ $('gNaechst').textContent=(l.naechst===1?'Sonnenaufgang':NAMEN[l.naechst])+' in';rollen($('gCount'),dauer(l.rest));$('gUm').textContent='um '+hm(l.um)+' · '+TAG.stadt;
+ $('gPunkte').innerHTML=KURZ.map((k,i)=>'<span class="'+(i===l.fenster?'jetzt':'')+'"><i></i>'+k+'</span>').join('');
+ const offen=kazaOffen(),fertig=kazaErledigt();$('kZahl').textContent=zahl(offen);$('kText').textContent=offen?'offen · '+zahl(fertig)+' nachgeholt':'einrichten';
+ $('kBalken').style.width=(offen+fertig?fertig/(offen+fertig)*100:0)+'%';const d=$('detail');if(!d.hidden&&d.dataset.art==='gebet'&&d.dataset.fenster!=String(l.fenster)){d.dataset.fenster=l.fenster;detailGebet()}}
+$('lIcon').insertAdjacentHTML('afterbegin',icon('book'));$('aIcon').insertAdjacentHTML('afterbegin',icon('drop'));
+function detailGebet(){const l=lage(),d=$('detail');d.className='detail gebet';
+ d.innerHTML='<div class="dkopf"><h2>Heute</h2><button class="zu press" aria-label="Schließen">'+icon('x')+'</button></div><div class="zeiten">'+
+  TAG.T.map((t,i)=>'<div class="zeit num'+(i===l.fenster?' jetzt':'')+'"><span>'+NAMEN[i]+'</span><span>'+hm(t)+'</span></div>').join('')+'</div>'+
+  (l.gebet===null?'<div class="los" style="opacity:.7">'+(l.kerahat?'Gerade keine Gebetszeit · ab '+hm(l.kerahat.bis):'Kein Pflichtgebet gerade')+'</div>':'<button class="los press">'+icon('play')+'Beginnen · '+NAMEN[l.gebet]+'</button>');d.querySelector('.zu').onclick=zu}
+function detailKaza(){const d=$('detail');d.className='detail';
+ d.innerHTML='<div class="dkopf"><h2>Kaza</h2><button class="zu press" aria-label="Schließen">'+icon('x')+'</button></div><div style="display:flex;align-items:baseline;gap:10px"><span class="kaza-zahl num" id="dFertig" style="font-size:48px"></span><small style="color:var(--muted);font-size:16px">nachgeholt</small></div><div class="balken"><div id="dBalken"></div></div><div id="dListe"></div><small style="text-align:center;color:var(--muted);margin-top:auto">Nur auf diesem Gerät gespeichert</small>';
+ const neu=()=>{const o=kazaOffen(),f=kazaErledigt();rollen($('dFertig'),zahl(f));$('dBalken').style.width=(o+f?f/(o+f)*100:0)+'%';zeichnen()};kazaListe($('dListe'),neu);neu()}
+function detailLeer(name){const d=$('detail');d.className='detail';d.innerHTML='<div class="dkopf"><h2>'+name+'</h2><button class="zu press" aria-label="Schließen">'+icon('x')+'</button></div><p style="color:var(--muted)">Hier öffnet sich der bestehende Bereich. Im Prototyp nur angedeutet.</p>'}
+// Karte wächst zur Seite: View Transitions, sonst einfaches Einblenden
+let offeneKarte=null;
+function wechsel(fn){if(document.startViewTransition&&!matchMedia('(prefers-reduced-motion: reduce)').matches)return document.startViewTransition(fn);fn()}
+function auf(karte){const art=karte.dataset.detail;if(!art)return haptik();haptik();offeneKarte=karte;karte.style.viewTransitionName='karte';
+ wechsel(()=>{karte.style.viewTransitionName='';const d=$('detail');d.dataset.art=art;({gebet:detailGebet,kaza:detailKaza,lernen:()=>detailLeer('Lernen'),abdest:()=>detailLeer('Abdest')})[art]();d.style.viewTransitionName='karte';d.hidden=false;d.querySelector('.zu').onclick=zu})}
+function zu(){const d=$('detail');if(d.hidden)return;haptik();wechsel(()=>{d.hidden=true;d.style.viewTransitionName='';if(offeneKarte)offeneKarte.style.viewTransitionName='karte'})?.finished.then(()=>{if(offeneKarte)offeneKarte.style.viewTransitionName=''})}
+document.querySelectorAll('.karte').forEach(k=>k.onclick=()=>auf(k));
+// nach unten oder von links wischen schließt
+let p=null;$('detail').addEventListener('pointerdown',e=>p=[e.clientX,e.clientY]);$('detail').addEventListener('pointerup',e=>{if(!p)return;const dx=e.clientX-p[0],dy=e.clientY-p[1];if(dy>90||(p[0]<40&&dx>80))zu();p=null});
+zeitenLaden().then(()=>{zeichnen();setInterval(()=>{if(demoMinute===null)zeichnen()},1000);umschalter('b',zeichnen)});
+</script></body></html>

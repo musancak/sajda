@@ -1,2 +1,6 @@
 .DS_Store
 __pycache__/
+werkzeuge/vapid.pem
+werkzeuge/push-abos.json
+werkzeuge/.venv-push/
+werkzeuge/cloudflared/

@@ -1,0 +1,369 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Falak · Sajda</title><link rel="stylesheet" href="basis.css"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="../icon-180.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Falak">
+<style>
+[hidden]{display:none!important}
+:root{--cw:min(50vw,220px);--ch:calc(var(--cw)*1.4);--mono:ui-monospace,'SF Mono',Menlo,monospace}
+body{background:#e4e4e6;color:#1d1d1f;font-family:-apple-system,'SF Pro Display',sans-serif;transition:background 1s,color 1s}
+body.nacht{background:#1b1b1d;color:#ececee}
+.studio{position:fixed;inset:0;background:linear-gradient(180deg,#ececee 0%,#dcdcdf 48%,#cfcfd2 60%)}
+.boden{position:fixed;left:-45%;right:-45%;top:52%;bottom:-40%;border-radius:50% 50% 0 0/22% 22% 0 0;background:linear-gradient(180deg,#b9b9bd 0%,#9a9a9f 25%,#79797e 60%,#5f5f64 100%);box-shadow:0 -1px 0 rgb(255 255 255/35%)}
+.nacht .studio{background:linear-gradient(180deg,#2a2a2d,#1f1f22 60%)}
+.nacht .boden{background:linear-gradient(180deg,#3a3a3e,#232326 40%,#111113);box-shadow:0 -1px 0 rgb(255 255 255/8%)}
+.mono{font-family:var(--mono);font-size:11px;letter-spacing:.03em}
+.oben{position:fixed;top:max(14px,env(safe-area-inset-top));left:20px;right:150px;z-index:10;display:flex;align-items:center;gap:7px;opacity:.7}
+.oben svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.5;flex:none}
+#buehne{position:fixed;left:0;right:0;top:0;height:calc(max(14px,env(safe-area-inset-top)) + 64px + var(--ch) + 30px);perspective:1100px;perspective-origin:50% 45%;touch-action:pan-y;z-index:3}
+.karte{position:absolute;left:50%;top:calc(max(14px,env(safe-area-inset-top)) + 56px);width:var(--cw);height:var(--ch);margin-left:calc(var(--cw)/-2);border-radius:14px;overflow:hidden;will-change:transform,opacity;
+ box-shadow:0 34px 44px -26px rgb(0 0 0/55%),0 2px 6px rgb(0 0 0/14%),inset 0 0 0 .5px rgb(255 255 255/25%);backface-visibility:hidden}
+.karte svg.kunst{position:absolute;inset:0;width:100%;height:100%}
+.karte .zeit{position:absolute;left:12px;top:11px;font-family:var(--mono);font-size:11px;letter-spacing:.04em;opacity:.8}
+.karte .name{position:absolute;left:12px;top:27px;font-size:15px;font-weight:600;letter-spacing:-.01em}
+.karte .schloss{position:absolute;right:11px;top:9px;width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6;opacity:.75}
+.karte.zu .kunst{filter:grayscale(1) brightness(.85) contrast(.9)}
+.karte::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,rgb(255 255 255/22%),transparent 38%);pointer-events:none}
+.info{position:fixed;left:20px;right:20px;top:calc(max(14px,env(safe-area-inset-top)) + 64px + var(--ch) + 34px);z-index:4;display:flex;flex-direction:column;gap:6px;text-align:center;align-items:center}
+.info{will-change:opacity,filter,transform;top:calc(max(14px,env(safe-area-inset-top)) + 64px + var(--ch) + 46px)!important}
+#play{position:fixed;z-index:6;left:50%;top:calc(max(14px,env(safe-area-inset-top)) + 56px + var(--ch) - 32px);width:64px;height:64px;margin-left:-32px;border-radius:50%;display:grid;place-items:center;background:#1f4d3f;color:#fff;
+ box-shadow:0 14px 28px -10px rgb(31 77 63/70%),0 0 0 6px rgb(255 255 255/55%);transition:background .3s,transform .4s var(--spring)}
+.nacht #play{box-shadow:0 14px 28px -10px rgb(0 0 0/80%),0 0 0 6px rgb(255 255 255/10%)}
+#play svg{width:26px;height:26px;margin-left:3px}
+#play.zu{background:#8e8e93;box-shadow:0 0 0 6px rgb(255 255 255/40%)}#play.zu svg{margin-left:0}
+#play.live::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:2px solid #1f4d3f;animation:puls 2.6s ease-out infinite}
+@keyframes puls{from{transform:scale(1);opacity:.6}to{transform:scale(1.45);opacity:0}}
+#play:active{transform:scale(.9)}
+.seg{position:relative;display:flex;padding:3px;border-radius:12px;background:rgb(0 0 0/7%);width:100%;max-width:340px;margin-top:8px}
+.nacht .seg{background:rgb(255 255 255/9%)}
+.seg button{flex:1;position:relative;z-index:1;padding:9px 4px;font-size:13px;font-weight:600;border-radius:9px;transition:color .3s}
+.seg .daumen{position:absolute;z-index:0;top:3px;bottom:3px;border-radius:9px;background:#fff;box-shadow:0 3px 8px rgb(0 0 0/12%);transition:left .45s var(--spring),width .45s var(--spring)}
+.nacht .seg .daumen{background:#5a5a5f}
+#iMarke{display:flex;align-items:center;gap:6px;opacity:.7}
+#iMarke.live{opacity:1;color:#1f4d3f}.nacht #iMarke.live{color:#9fd3bd}
+#iMarke.live::before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor;animation:atmen 2.4s ease-in-out infinite}
+@keyframes atmen{50%{transform:scale(1.6);opacity:.4}}
+#iName{margin:2px 0 0;font-size:30px;letter-spacing:-.035em;font-weight:700}
+#iSub{font-size:14px;opacity:.65}
+.teile{display:flex;gap:6px;margin-top:4px}
+.teil{padding:7px 11px;border-radius:10px;font-size:13px;font-weight:600;background:rgb(0 0 0/6%);transition:background .25s,color .25s}
+.nacht .teil{background:rgb(255 255 255/9%)}
+.teil[aria-pressed=true]{background:#1d1d1f;color:#f5f5f7}.nacht .teil[aria-pressed=true]{background:#f5f5f7;color:#1d1d1f}
+.los{margin-top:6px;width:100%;max-width:340px;padding:15px;border-radius:14px;background:#1d1d1f;color:#f5f5f7;font-weight:650;font-size:16px;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 10px 24px -12px rgb(0 0 0/50%)}
+.nacht .los{background:#f5f5f7;color:#1d1d1f}
+.los.gruen{background:#1f4d3f;color:#fff}
+.los.aus{opacity:.45}
+.zwei{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%;max-width:340px;margin-top:6px}
+.zwei .los{margin:0;background:rgb(0 0 0/8%);color:inherit;box-shadow:none}.nacht .zwei .los{background:rgb(255 255 255/10%)}
+.kacheln{position:fixed;left:16px;right:16px;bottom:max(14px,env(safe-area-inset-bottom));z-index:4;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:74px;gap:9px}
+.kachel{border-radius:12px;padding:9px 10px;text-align:left;display:flex;flex-direction:column;justify-content:space-between;color:#f5f5f7;
+ background:linear-gradient(160deg,#8f8f94,#6a6a6f);box-shadow:0 12px 20px -12px rgb(0 0 0/55%),inset 0 1px 0 rgb(255 255 255/18%);font-size:13px;font-weight:600;position:relative;overflow:hidden}
+.nacht .kachel{background:linear-gradient(160deg,#3a3a3e,#26262a)}
+.kachel .mono{font-size:10px;opacity:.75;font-weight:400}
+.kachel svg.i{width:18px;height:18px}
+.kachel.breit{grid-column:span 2;background:linear-gradient(160deg,#f7f7f8,#d6d6d9);color:#1d1d1f}
+.nacht .kachel.breit{background:linear-gradient(160deg,#5a5a5f,#3c3c40);color:#f5f5f7}
+.kachel.breit b{font-size:28px;letter-spacing:-.03em;font-weight:700;line-height:1}
+.kachel.bald{background:transparent;color:inherit;box-shadow:none;border:1px dashed rgb(0 0 0/22%);opacity:.7}.nacht .kachel.bald{border-color:rgb(255 255 255/22%)}
+.kachel.wackeln{animation:wackel .4s}@keyframes wackel{25%{translate:-4px}75%{translate:4px}}
+.blatt{background:#f2f2f4;color:#1d1d1f}.nacht .blatt{background:#202023;color:#ececee}
+.kz-zeile{background:rgb(0 0 0/5%)}.nacht .kz-zeile{background:rgb(255 255 255/7%)}
+.kz-zeile button{background:#1d1d1f}.nacht .kz-zeile button{background:#f5f5f7;color:#1d1d1f}
+.toast{background:#1d1d1f}.roll{white-space:pre}
+.wahlton{display:grid;gap:8px}
+.ton{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;background:rgb(0 0 0/5%);text-align:left}.nacht .ton{background:rgb(255 255 255/7%)}
+.ton[aria-pressed=true]{box-shadow:inset 0 0 0 2px currentColor}
+.ton span{flex:1}.ton em{display:block;font-style:normal;font-size:12px;opacity:.6}
+.ton b{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#1d1d1f;color:#fff}.nacht .ton b{background:#f5f5f7;color:#1d1d1f}
+.ton b svg{width:16px;height:16px}
+.hinweis{font-size:12px;opacity:.6;line-height:1.45;margin:0}
+.zaehl{font-size:84px;font-weight:200;text-align:center;letter-spacing:-.05em;padding:18px 0;border-radius:18px;background:rgb(0 0 0/5%)}
+.kz-kopf{display:flex;align-items:center;gap:14px}
+#ring{width:64px;height:64px;flex:none;position:relative}
+#ring svg{width:64px;height:64px;transform:rotate(-90deg)}
+#ring path{fill:none;stroke-width:5;stroke-linecap:round;stroke:rgb(0 0 0/10%);transition:stroke .5s}.nacht #ring path{stroke:rgb(255 255 255/12%)}
+#ring path.voll{stroke:#1f4d3f}.nacht #ring path.voll{stroke:#9fd3bd}
+#ring b{position:absolute;inset:0;display:grid;place-items:center;font-size:20px;font-weight:700}
+.kzl{display:grid;gap:7px}
+.kzr{display:flex;align-items:center;gap:12px;padding:9px 9px 9px 16px;border-radius:14px;background:rgb(0 0 0/5%);transition:transform .4s var(--spring)}.nacht .kzr{background:rgb(255 255 255/7%)}
+.kzr span{flex:1}.kzr small{display:block;font-family:var(--mono);font-size:10px;opacity:.55}
+.kzr .num{font-size:20px;font-weight:700}
+.hak{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:1.5px solid currentColor;opacity:.85;transition:background .35s var(--ease),border-color .35s,transform .4s var(--spring)}
+.hak svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:24;stroke-dashoffset:0}
+.hak.an{background:#1f4d3f;border-color:#1f4d3f;color:#fff;opacity:1;transform:scale(1.08)}
+.hak.an svg{animation:zeichnen .5s .08s var(--ease) both}
+@keyframes zeichnen{from{stroke-dashoffset:24}}
+.kzr.an{transform:scale(.98)}
+.vers{position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:28px;background:rgb(228 228 230/72%);backdrop-filter:blur(26px) saturate(1.2);-webkit-backdrop-filter:blur(26px) saturate(1.2);opacity:0;transition:opacity .6s var(--ease)}
+.nacht .vers{background:rgb(20 20 22/75%)}
+.vers.an{opacity:1}
+.vers-in{max-width:420px;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center}
+.vers .arab{margin:0;font-family:'Geeza Pro','Al Nile','Noto Naskh Arabic',serif;font-size:30px;line-height:1.9}
+.vers .de{margin:0;font-size:20px;line-height:1.45;font-weight:500;letter-spacing:-.01em}
+.vers .w{display:inline-block;opacity:0;filter:blur(8px);transform:translateY(6px);transition:opacity .7s var(--ease),filter .7s var(--ease),transform .9s var(--spring)}
+.vers.an .w{opacity:1;filter:none;transform:none}
+.vers .quelle{opacity:0;transition:opacity .8s}.vers.an .quelle{opacity:.6}
+#versZu{max-width:260px;opacity:0;transition:opacity .6s}.vers.an #versZu{opacity:1}
+.zeitbogen{position:fixed;left:14px;right:14px;z-index:4;top:calc(max(14px,env(safe-area-inset-top)) + 64px + var(--ch) + 136px);bottom:calc(max(14px,env(safe-area-inset-bottom)) + 140px);display:flex;align-items:center;pointer-events:none}
+.zeitbogen svg{width:100%;height:auto;max-height:100%;overflow:visible}
+.zb-bahn{fill:none;stroke:currentColor;stroke-opacity:.16;stroke-width:3;stroke-linecap:round}
+.zb-voll{fill:none;stroke:url(#zbVerlauf);stroke-width:3;stroke-linecap:round}
+.zb-punkt{fill:currentColor;opacity:.35}.zb-punkt.vorbei{opacity:.8}.zb-punkt.naechst{fill:none;stroke:currentColor;stroke-width:1.4;opacity:.9}
+.zb-name{font:600 8.5px -apple-system,sans-serif;fill:currentColor;text-anchor:middle;opacity:.55}.zb-zeit{font:9px ui-monospace,'SF Mono',Menlo,monospace;fill:currentColor;text-anchor:middle;opacity:.8}
+.zb-name.an,.zb-zeit.an{opacity:1}.zb-name.an{fill:#1f4d3f}.nacht .zb-name.an{fill:#9fd3bd}
+#zbJetzt{fill:#1f4d3f;transition:r 1s var(--ease)}.nacht #zbJetzt{fill:#9fd3bd}
+#zbHalo{fill:none;stroke:#1f4d3f;stroke-width:1;opacity:.5;animation:halo 2.8s ease-out infinite;transform-box:fill-box;transform-origin:center}.nacht #zbHalo{stroke:#9fd3bd}
+@keyframes halo{from{transform:scale(1);opacity:.55}to{transform:scale(2.4);opacity:0}}
+#funken{position:fixed;inset:0;z-index:70;pointer-events:none;overflow:hidden}
+.funke{position:absolute;width:12px;height:12px;margin:-6px 0 0 -6px;fill:none;stroke:#1f4d3f;stroke-width:1.3}.nacht .funke{stroke:#9fd3bd}
+.welle{position:absolute;border-radius:50%;border:1.5px solid #1f4d3f;pointer-events:none}.nacht .welle{border-color:#9fd3bd}
+.lob{position:fixed;left:0;right:0;text-align:center;z-index:71;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.08em;pointer-events:none;color:#1f4d3f}.nacht .lob{color:#9fd3bd}
+.karte.erste{box-shadow:0 34px 44px -26px rgb(0 0 0/55%),0 0 0 1.5px #1f4d3f,0 0 22px rgb(31 77 63/45%)}
+.nacht .karte.erste{box-shadow:0 34px 44px -26px rgb(0 0 0/80%),0 0 0 1.5px #9fd3bd,0 0 22px rgb(159 211 189/35%)}
+#zbJetzt.eile{animation:eile 1.3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes eile{50%{transform:scale(1.5);opacity:.55}}
+.zb-punkt.gebetet{opacity:1;fill:#1f4d3f;filter:drop-shadow(0 0 3px rgb(31 77 63/70%))}.nacht .zb-punkt.gebetet{fill:#9fd3bd;filter:drop-shadow(0 0 4px rgb(159 211 189/80%))}
+.zb-rueck{font:10px ui-monospace,'SF Mono',Menlo,monospace;letter-spacing:.12em;fill:currentColor;text-anchor:middle;opacity:.7}
+.rueck .zb-voll{stroke-opacity:.35}
+.kteile{position:absolute;left:10px;right:10px;bottom:46px;display:grid;grid-template-columns:1fr 1fr;gap:6px;z-index:2}
+.kteile button{padding:8px 4px;border-radius:9px;font-size:12.5px;font-weight:650;color:inherit;background:rgb(255 255 255/16%);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:inset 0 0 0 .5px rgb(255 255 255/35%);transition:background .3s,color .3s,transform .35s var(--spring)}
+.kteile button:active{transform:scale(.94)}
+.kteile button[aria-pressed=true]{background:#f5f5f7;color:#1d1d1f;box-shadow:0 4px 10px -4px rgb(0 0 0/40%)}
+.hellk .kteile button{background:rgb(0 0 0/7%);box-shadow:inset 0 0 0 .5px rgb(0 0 0/12%)}
+.hellk .kteile button[aria-pressed=true]{background:#1d1d1f;color:#f5f5f7}
+.kteile.eins{grid-template-columns:1fr}
+.karte.vorbei .kteile{opacity:.35;pointer-events:none}
+.karte.zu .kteile{opacity:.5}
+.varianten{position:fixed;top:calc(max(14px,env(safe-area-inset-top)) + 21px);left:42px;z-index:10;display:flex;gap:11px;font:10px var(--mono);letter-spacing:.08em}
+.varianten a{color:inherit;text-decoration:none;opacity:.4;padding:3px 0}.varianten a.an{opacity:1;border-bottom:1px solid currentColor}
+.v-perlen .kteile,.v-kugeln .kteile,.v-walze .kteile,.v-faecher .kteile{display:none}
+/* Fächer: kleine Karten */
+.v-faecher{--cw:25vw;--ch:calc(var(--cw)*1.4)}
+.v-faecher .karte{border-radius:9px}.v-faecher .karte .name{font-size:10px;top:22px;left:7px}.v-faecher .karte .zeit{font-size:8.5px;left:7px;top:7px}
+/* Kugeln: Licht wie die Sonne zu dieser Zeit */
+.v-kugeln{--ch:196px}
+.v-kugeln .karte{width:124px;height:124px;margin-left:-62px;border-radius:50%;overflow:visible;box-shadow:none;background:none}
+.v-kugeln .karte::after,.v-kugeln .kunst,.v-perlen .kunst,.v-walze .kunst{display:none}
+.ball{position:absolute;inset:0;border-radius:50%;box-shadow:0 26px 30px -18px rgb(0 0 0/55%)}
+.v-kugeln .karte .name,.v-kugeln .karte .zeit{display:none}
+.v-kugeln .karte .name{top:136px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:13px;color:#1d1d1f}.nacht .v-kugeln .karte .name,.v-kugeln.nacht .karte .name{color:#ececee}
+.v-kugeln .karte .zeit{top:156px;left:50%;transform:translateX(-50%);color:#1d1d1f;opacity:.6}.v-kugeln.nacht .karte .zeit{color:#ececee}
+.v-kugeln .karte .schloss{right:auto;left:50%;top:50%;margin:-8px 0 0 -8px}
+.v-kugeln .karte.zu .ball{filter:grayscale(1) brightness(.8)}
+/* Perlen: Tesbih auf der Bahn */
+.v-perlen{--ch:262px}
+.v-perlen .karte{top:calc(max(14px,env(safe-area-inset-top)) + 112px)!important}
+.bahn{position:absolute;left:50%;top:calc(max(14px,env(safe-area-inset-top)) + 148px);clip-path:inset(0 0 84% 0);width:760px;height:760px;margin-left:-380px;border-radius:50%;border:1px solid currentColor;opacity:.16;pointer-events:none}
+.v-perlen .karte{width:72px;height:72px;margin-left:-36px;margin-top:0;border-radius:50%;overflow:visible;background:#b9b9bd;box-shadow:0 10px 16px -8px rgb(0 0 0/45%),inset 0 2px 3px rgb(255 255 255/50%);color:#1d1d1f!important}
+.v-perlen .karte::after{border-radius:50%}
+.v-perlen .karte.jetzt{background:radial-gradient(circle at 35% 30%,#3d7a65,#1f4d3f 70%);color:#fff!important}
+.v-perlen .karte.zu{background:transparent;box-shadow:inset 0 0 0 1.5px currentColor;opacity:.6}
+.v-perlen.nacht .karte{background:#4a4a4e;color:#ececee!important}.v-perlen.nacht .karte.zu{background:transparent;color:#ececee!important}
+.v-perlen .karte .name{display:none}
+.v-perlen .karte .zeit{top:84px;left:50%;transform:translateX(-50%);white-space:nowrap;opacity:.8}
+.v-perlen .karte .kurz{position:absolute;inset:0;display:grid;place-items:center;font-size:13px;font-weight:700}
+.v-perlen .karte .schloss{display:none!important}
+.v-perlen #zeitbogen{display:none}
+/* Walze */
+.v-walze{--ch:300px}
+body:not(.v-karten) .zeitbogen{top:calc(max(14px,env(safe-area-inset-top)) + 64px + var(--ch) + 176px)}
+.v-walze #buehne{perspective:700px;touch-action:none}
+.oben span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.v-walze .karte{width:84vw;height:46px;margin-left:-42vw;top:calc(max(14px,env(safe-area-inset-top)) + 160px);background:none;box-shadow:none;border-radius:0;color:inherit!important;display:flex;align-items:center;justify-content:space-between;padding:0 6px;overflow:visible}
+.v-walze .karte::after{display:none}
+.v-walze .karte .name{position:static;order:1;flex:1;font-size:25px;font-weight:600;letter-spacing:-.03em}
+.v-walze .karte .zeit{position:static;order:3;font-size:12px;white-space:nowrap}
+.v-walze .karte .schloss{position:static;order:2;margin-right:10px}
+.walzband{position:absolute;left:5vw;right:5vw;top:calc(max(14px,env(safe-area-inset-top)) + 158px);height:50px;border-top:.5px solid currentColor;border-bottom:.5px solid currentColor;opacity:.25;pointer-events:none}
+.v-walze .karte.jetzt .name{color:#1f4d3f}.v-walze.nacht .karte.jetzt .name{color:#9fd3bd}
+</style></head><body>
+<div class="studio"></div><div class="boden"></div>
+<div class="oben"><svg viewBox="0 0 100 100" aria-hidden="true"><rect x="22" y="22" width="56" height="56"/><rect x="22" y="22" width="56" height="56" transform="rotate(45 50 50)"/></svg><span class="mono" id="datum"></span></div>
+<nav class="varianten" id="varianten"></nav><div id="buehne"></div>
+<button id="play" aria-label="Beginnen"></button><div class="info" id="info"><span class="mono" id="iMarke"></span><h1 id="iName"></h1><span class="num" id="iSub"></span><div id="iAktion" style="width:100%;display:flex;justify-content:center"></div></div>
+<div class="zeitbogen" id="zeitbogen"><svg id="zbSvg" viewBox="0 0 340 78" aria-hidden="true"></svg></div><div class="kacheln" id="kacheln"></div><div id="funken"></div>
+<div class="blatt" id="kazaBlatt"><div class="griff"></div><div class="kz-kopf"><button id="ring" class="press" aria-label="Heute"></button><div><h2>Kaza</h2><p class="hinweis" id="kazaBlattText"></p></div></div><div id="kazaBox" class="kzl"></div></div>
+<div id="vers" class="vers" hidden><div class="vers-in"><span class="mono" id="versKopf"></span><p class="arab" dir="rtl" lang="ar" id="versAr"></p><p class="de" id="versDe"></p><span class="mono quelle" id="versQuelle"></span><button class="los press" id="versZu">Allah kabul etsin</button></div></div>
+<div class="blatt" id="tonBlatt"><div class="griff"></div><h2>Erinnerung</h2><p class="hinweis">Ton zur Gebetszeit wählen und testen.</p><div class="wahlton" id="toene"></div><button class="los" id="tonTest"></button><p class="hinweis" id="tonHinweis"></p><div class="zwei" id="pushKnoepfe" style="max-width:none"><button class="los press" id="pushAn">Push aktivieren</button><button class="los press" id="pushTest">Push in 30 s</button></div><button class="los press" id="pushHeute" style="max-width:none;background:rgb(0 0 0/8%);color:inherit;box-shadow:none">Heute zu allen Gebetszeiten</button><p class="hinweis" id="pushStatus"></p></div>
+<div class="blatt" id="tesbihBlatt"><div class="griff"></div><h2 id="tWort">Sübhanallah</h2><p class="hinweis" id="tBed"></p><button class="zaehl num press" id="tZahl">0</button><p class="hinweis" style="text-align:center">antippen · 33 je Wort</p></div>
+<script src="basis.js"></script>
+<script>
+const STERN_LOCK='<svg class="schloss" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9.5" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>';
+const GEBETE=[0,2,3,4,5];
+const TEILE={0:[['s2','2 Sünnet'],['p2','2 Farz']],2:[['s4','4 Sünnet'],['dhuhrFarz','4 Farz'],['dhuhrAfter','2 Sünnet']],3:[['asr','4 Sünnet'],['asrFarz','4 Farz']],4:[['p3','3 Farz'],['maghribSunna','2 Sünnet']],5:[['isha','4 Sünnet'],['ishaFarz','4 Farz'],['ishaAfter','2 Sünnet'],['witr','3 Vitir']]};
+const KAZA_KEY={0:'sabah',2:'ogle',3:'ikindi',4:'aksam',5:'yatsi'};
+const heuteKey=new Date().toLocaleDateString('sv');let heute={};try{heute=JSON.parse(localStorage.getItem('sajda-entwurf-heute')||'{}')}catch{}if(heute.tag!==heuteKey)heute={tag:heuteKey,ok:{}};
+const heuteSpeichern=()=>{try{localStorage.setItem('sajda-entwurf-heute',JSON.stringify(heute))}catch{}};
+
+// Kunst je Gebet: monochrome Himmelsszene, Kugel = Stand der Sonne, nachts Mondsichel
+function kunst(i){const g='g'+i,k='k'+i;const S={0:['#2c2c30','#c4c4c8',[100,236,15],'#f2f2f3',.55],2:['#f7f7f8','#bcbcc0',[104,74,22],'#ffffff',.18],3:['#e3e3e5','#98989d',[146,126,20],'#fbfbfb',.22],4:['#8b8b90','#2a2a2d',[66,206,24],'#e9e9eb',.4],5:['#1c1c1f','#040405',null,'#e9e9eb',.6]}[i];
+ const kugel=S[2]?'<circle cx="'+S[2][0]+'" cy="'+S[2][1]+'" r="'+S[2][2]+'" fill="url(#'+k+')"/>':'<path d="M128 62a24 24 0 1 0 20 38a19 19 0 1 1-20-38z" fill="#e9e9eb"/><circle cx="54" cy="58" r="1.2" fill="#fff"/><circle cx="160" cy="140" r="1" fill="#fff"/><circle cx="36" cy="130" r=".9" fill="#fff"/>';
+ return '<svg class="kunst" viewBox="0 0 200 280" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="'+g+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+S[0]+'"/><stop offset="1" stop-color="'+S[1]+'"/></linearGradient>'+
+  '<radialGradient id="'+k+'" cx=".35" cy=".3" r=".75"><stop offset="0" stop-color="'+S[3]+'"/><stop offset="1" stop-color="#8d8d92"/></radialGradient></defs><rect width="200" height="280" fill="url(#'+g+')"/>'+kugel+
+  '<path d="M-30 196Q90 150 230 214V300H-30Z" fill="#000" opacity="'+S[4]*.35+'"/><path d="M-30 236Q110 196 230 252V300H-30Z" fill="#000" opacity="'+S[4]*.5+'"/><path d="M-30 196Q90 150 230 214" fill="none" stroke="#fff" stroke-opacity=".25" stroke-width=".6"/></svg>'}
+const hell=i=>i===2||i===3;
+
+// ---------- Orbit nur für die Gebete: 3D, jede Karte folgt mit eigener Feder ----------
+const VAR=['karten','kugeln','walze','faecher'].includes(new URLSearchParams(location.search).get('v'))?new URLSearchParams(location.search).get('v'):'perlen';document.body.classList.add('v-'+VAR);
+$('varianten').innerHTML=[['perlen','PERLEN'],['karten','KARTEN'],['kugeln','KUGELN'],['walze','WALZE'],['faecher','FÄCHER']].map(([v,n])=>'<a href="?v='+v+'"'+(v===VAR?' class="an"':'')+'>'+n+'</a>').join('');
+if(VAR==='perlen')$('buehne').insertAdjacentHTML('afterbegin','<div class="bahn"></div>');if(VAR==='walze')$('buehne').insertAdjacentHTML('afterbegin','<div class="walzband"></div>');
+// Kugeln: Licht kommt von dort, wo die Sonne zu dieser Zeit steht; nachts eine Sichel
+const KUGEL={0:'radial-gradient(circle at 22% 88%,#dcdcdf,#8a8a8f 38%,#3a3a3e 75%,#1f1f22)',2:'radial-gradient(circle at 50% 18%,#fff,#dedee1 35%,#9a9a9f 75%,#6d6d72)',3:'radial-gradient(circle at 78% 28%,#fbfbfb,#c9c9cc 35%,#7d7d82 72%,#4a4a4e)',4:'radial-gradient(circle at 96% 62%,#e9e9eb,#7d7d82 22%,#3a3a3e 55%,#1c1c1f)',5:'#1c1c1f'};
+let gewaehlt={},pos=0,ziel=0,vel=0,zieht=false,letzteStufe=null,zeige=0;
+const karten=GEBETE.map((g,j)=>{const el=document.createElement('div');el.className='karte';el.innerHTML=(VAR==='kugeln'?'<div class="ball" style="background:'+KUGEL[g]+(g===5?';box-shadow:inset -16px 6px 0 0 #e9e9eb,0 26px 30px -18px rgb(0 0 0/55%)':'')+'"></div>':'')+(VAR==='perlen'?'<span class="kurz">'+KURZ[g]+'</span>':'')+kunst(g)+'<span class="zeit"></span><span class="name"></span>'+STERN_LOCK;
+ el.style.color=hell(g)?'#1d1d1f':'#f5f5f7';if(hell(g))el.classList.add('hellk');el.querySelector('.name').textContent=NAMEN[g];
+ const tl=document.createElement('div');tl.className='kteile';const teile=TEILE[g];if(gewaehlt[g]===undefined)gewaehlt[g]=Math.max(0,teile.findIndex(t=>t[1].includes('Farz')));
+ teile.forEach(([id,n],x)=>{const b=document.createElement('button');b.textContent=n;b.setAttribute('aria-pressed',x===gewaehlt[g]);
+  b.onclick=e=>{e.stopPropagation();if(karten[zeige]?.el!==el){gehe(j);return}gewaehlt[g]=x;haptik();tl.querySelectorAll('button').forEach((c,y)=>c.setAttribute('aria-pressed',y===x))};tl.append(b)});
+ if(teile.length===3)tl.lastChild.style.gridColumn='span 2';el.append(tl);$('buehne').append(el);return{el,g,j,p:0,v:0}});
+let breite=0;const W=()=>breite||(breite=karten[0].el.offsetWidth);addEventListener('resize',()=>breite=0);
+const SCHRITT=()=>({karten:W()*.75,faecher:W()*.85,kugeln:110,perlen:84,walze:46})[VAR];
+function pose(d){const w=W(),a=Math.abs(d);
+ if(VAR==='faecher'){if(d<=0)return{x:-a*w*.95-a*a*3,y:a*12+a*a*4,z:-a*40,ry:a*12,rz:-a*11,o:a>3.2?Math.max(0,3.8-a)/.6:1};return{x:d*w*.9,y:-d*3,z:-d*150,ry:-Math.min(55,d*28),rz:d*3,o:d>3.4?Math.max(0,4-d)/.6:1}}
+ if(VAR==='kugeln')return{x:d*150-Math.sign(d)*Math.min(a,1)*14,y:d*d*14,z:-a*440,ry:0,rz:0,o:a>2.6?Math.max(0,3.2-a)/.6:1};
+ if(VAR==='perlen'){const t=d*.22;return{x:380*Math.sin(t),y:380*(1-Math.cos(t)),z:0,ry:0,rz:0,s:1-Math.min(1,a)*.42,o:a>2.8?Math.max(0,3.4-a)/.6:1}}
+ if(VAR==='walze'){const t=d*.42;return{x:0,y:Math.sin(t)*130,z:(Math.cos(t)-1)*130,rx:-d*24,ry:0,rz:0,o:Math.max(0,1-a*.27)}}
+ if(d<=0){const a=-d;return{x:-a*w*.62-a*a*w*.05,y:a*a*7+a*14,z:-a*70,ry:a*20,rz:-a*12,o:a>2.7?Math.max(0,3.3-a)/.6:1}}
+ return{x:d*w*.5+Math.min(d,1)*w*.12,y:-d*6,z:-d*430,ry:-Math.min(70,d*42),rz:d*2,o:d>3.4?Math.max(0,4-d)/.6:1}}
+function layout(){for(const k of karten){const d=k.j-k.p,P=pose(d);k.el.style.transform='translate3d('+P.x+'px,'+P.y+'px,'+P.z+'px) rotateX('+(P.rx||0)+'deg) rotateY('+P.ry+'deg) rotateZ('+P.rz+'deg) scale('+(P.s||1)+')';k.el.style.opacity=P.o;k.el.style.zIndex=100-Math.round(Math.abs(d)*10)+(d<0?5:0)}}
+let t0=performance.now();
+(function loop(t){const dt=Math.min(.033,(t-t0)/1000);t0=t;
+ if(!zieht){const f=(ziel-pos)*170-vel*24;vel+=f*dt;pos+=vel*dt;if(Math.abs(ziel-pos)<.0004&&Math.abs(vel)<.002){pos=ziel;vel=0}}
+ // klebendes Nachziehen: je weiter eine Karte vom Ziel weg ist, desto weicher ihre Feder
+ for(const k of karten){const ab=Math.abs(k.j-ziel),K=420/(1+ab*.9),D=2*Math.sqrt(K)*.72;const f=(pos-k.p)*K-k.v*D;k.v+=f*dt;k.p+=k.v*dt}
+ const stufe=Math.max(0,Math.min(karten.length-1,Math.round(pos)));if(stufe!==letzteStufe){if(letzteStufe!==null){haptik();zeige=stufe;info()}letzteStufe=stufe}
+ const rest=pos-Math.round(pos),f=Math.min(1,Math.abs(rest)*2.6),ib=$('info');
+ ib.style.opacity=1-f;ib.style.filter=f>.01?'blur('+(f*9).toFixed(1)+'px)':'';ib.style.transform='translateX('+(-rest*46).toFixed(1)+'px) scale('+(1-f*.04).toFixed(3)+')';
+ const pl=$('play');pl.style.opacity=pl.dataset.weg?0:1-f;pl.style.transform='translateX('+(-rest*W()*.6).toFixed(1)+'px) scale('+(1-f*.35).toFixed(3)+')';pl.style.pointerEvents=pl.dataset.weg||f>.3?'none':'';
+ layout();requestAnimationFrame(loop)})(t0);
+function gehe(j){ziel=Math.max(0,Math.min(karten.length-1,j))}
+let zug=null;const B=$('buehne');
+B.addEventListener('pointerdown',e=>zug={x:e.clientX,y:e.clientY,p:pos,lx:VAR==='walze'?e.clientY:e.clientX,lt:performance.now(),vx:0,los:false});
+const senk=VAR==='walze',achse=e=>senk?e.clientY:e.clientX,quer=e=>senk?e.clientX:e.clientY;
+B.addEventListener('pointermove',e=>{if(!zug)return;const dx=achse(e)-(senk?zug.y:zug.x);if(!zug.los&&Math.abs(dx)>7&&Math.abs(dx)>Math.abs(quer(e)-(senk?zug.x:zug.y))){zug.los=true;zieht=true;B.setPointerCapture(e.pointerId)}if(!zug.los)return;
+ const w=SCHRITT(),now=performance.now();zug.vx=(achse(e)-zug.lx)/Math.max(1,now-zug.lt);zug.lx=achse(e);zug.lt=now;
+ let p=zug.p-dx/w;const max=karten.length-1;if(p<0)p*=.3;if(p>max)p=max+(p-max)*.3;pos=p;ziel=Math.round(Math.max(0,Math.min(max,p)))});
+B.addEventListener('pointerup',e=>{if(!zug)return;if(zug.los){zieht=false;const w=SCHRITT(),v=-zug.vx*1000/w;vel=v;gehe(Math.round(pos+v*.16))}
+ else{const el=e.target.closest('button')?null:e.target.closest('.karte');if(el){const k=karten.find(k=>k.el===el);if(k.j!==ziel)gehe(k.j);else{k.el.animate([{filter:'brightness(1)'},{filter:'brightness(1.15)'},{filter:'brightness(1)'}],{duration:350});haptik()}}}zug=null});
+
+// ---------- Info unter der vorderen Karte ----------
+let altSchluessel='';
+function status(g,l){if(l.fenster===g)return'jetzt';if(l.m<TAG.T[0])return'zu';return TAG.T[g]>l.m?'zu':'vorbei'}
+function info(){const l=lage(),g=GEBETE[zeige],s=status(g,l);
+ const m=$('iMarke');m.className='mono'+(s==='jetzt'?' live':'');m.textContent=s==='jetzt'?'JETZT · '+KURZ[g].toUpperCase():s==='zu'?'SPÄTER · '+KURZ[g].toUpperCase():(heute.ok[g]?'GEBETET · ':'VORBEI · ')+KURZ[g].toUpperCase();
+ $('iName').textContent=NAMEN[g];sub(l,g,s);
+ const pl=$('play');pl.className=s==='jetzt'?'live':s==='zu'?'zu':'';if(s==='vorbei')pl.dataset.weg=1;else delete pl.dataset.weg;
+ pl.innerHTML=s==='zu'?STERN_LOCK.replace('class="schloss"','class="i"'):icon('play');
+ pl.onclick=()=>{if(s==='zu'){haptik();const k=karten[zeige].el;k.animate([{translate:'0'},{translate:'-6px'},{translate:'6px'},{translate:'0'}],{duration:320});return}
+  const [x,y]=mitte(pl);wirkung(x,y,frische(l));heute.ok[g]=true;if(seitBeginn(l)<=10)(heute.erste??={})[g]=true;heuteSpeichern();setTimeout(zeichnen,400);setTimeout(()=>toast(NAMEN[g]+' · '+TEILE[g][gewaehlt[g]??0][1]+' startet (Prototyp)',()=>{}),500)};
+ const schluessel=g+s+(heute.ok[g]?'ok':'');if(schluessel===altSchluessel)return;altSchluessel=schluessel;
+ const a=$('iAktion');a.replaceChildren();
+ if((s==='jetzt'||s==='zu')&&VAR!=='karten'){const teile=TEILE[g];const seg=document.createElement('div');seg.className='seg';const daumen=document.createElement('i');daumen.className='daumen';seg.append(daumen);
+  const setze=x=>{gewaehlt[g]=x;const b=seg.querySelectorAll('button')[x];daumen.style.left=b.offsetLeft+'px';daumen.style.width=b.offsetWidth+'px'};
+  teile.forEach(([id,n],x)=>{const b=document.createElement('button');b.textContent=n;b.onclick=()=>{haptik();setze(x)};seg.append(b)});a.append(seg);requestAnimationFrame(()=>setze(gewaehlt[g]))}
+ else{const z=document.createElement('div');z.className='zwei';const ok=document.createElement('button');ok.className='los press';ok.innerHTML=icon('check')+'<span>'+(heute.ok[g]?'Gebetet':'Gebetet?')+'</span>';
+  ok.onclick=()=>{heute.ok[g]=!heute.ok[g];heuteSpeichern();if(heute.ok[g]){const [x,y]=mitte(ok);wirkung(x,y,.12)}else haptik();altSchluessel='';info()};const kz=document.createElement('button');kz.className='los press';kz.innerHTML='<span>Verpasst · zu Kaza</span>';
+  kz.onclick=()=>{const k=KAZA_KEY[g];zustand.kaza.open[k]=(zustand.kaza.open[k]||0)+1;speichern();haptik();kacheln();toast(NAMEN[g]+' zu Kaza hinzugefügt',()=>{zustand.kaza.open[k]--;speichern();kacheln()})};z.append(ok,kz);a.append(z)}}
+function sub(l,g,s){const ende=g===0?TAG.T[1]:g===5?TAG.morgenImsak+1440:TAG.T[g+1];
+ $('iSub').textContent=s==='jetzt'?'noch '+dauer(l.ende-l.m)+(l.ende-l.m>=60?' Std.':'')+' · bis '+hm(l.ende):s==='zu'?'ab '+hm(TAG.T[g])+' · in '+dauer(TAG.T[g]-l.m)+(TAG.T[g]-l.m>=60?' Std.':''):hm(TAG.T[g])+' – '+hm(ende)}
+
+// ---------- Kacheln unten ----------
+// Kaza abhaken: Haken zeichnet sich, Zahl rollt, Tagesring füllt sich; nach 5 am Tag erscheint ein Vers
+const VERSE=[{ar:'وَمَن جَٰهَدَ فَإِنَّمَا يُجَٰهِدُ لِنَفۡسِهِۦٓۚ إِنَّ ٱللَّهَ لَغَنِيٌّ عَنِ ٱلۡعَٰلَمِينَ',
+ de:'Wer da strebt, strebt nur für seine eigene Seele; denn Allah ist unabhängig von allen Welten.',
+ quelle:'SURE 29 · AL-ʿANKABŪT · VERS 6',uebers:'Übersetzung: „Der Heilige Qur-ân“ (Rabwah)'}];
+const heuteKaza=()=>zustand.kaza.days[new Date().toLocaleDateString('sv')]||0;
+function kazaText(){const h=heuteKaza();$('kazaBlattText').textContent='Heute '+h+(h<5?' von 5':'')+' · '+zahl(kazaOffen())+' offen';
+ const r=$('ring'),bogen=(i)=>{const a0=i*72+4,a1=i*72+68,p=a=>[32+26*Math.cos(a*Math.PI/180),32+26*Math.sin(a*Math.PI/180)].map(v=>v.toFixed(2)).join(' ');return'<path class="'+(i<h?'voll':'')+'" d="M'+p(a0)+' A26 26 0 0 1 '+p(a1)+'"/>'};
+ r.innerHTML='<svg viewBox="0 0 64 64">'+[0,1,2,3,4].map(bogen).join('')+'</svg><b class="num">'+h+'</b>';r.onclick=()=>{if(heuteKaza()>=5)versZeigen()}}
+function kazaZeilen(){$('kazaBox').replaceChildren(...KAZA_ZEILEN.map(([k,name],j)=>{const z=document.createElement('div');z.className='kzr';
+ z.innerHTML='<span></span><b class="num"></b><button class="hak" aria-label="Ein Gebet nachgeholt"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>';
+ z.firstChild.innerHTML=name+'<small>'+[2,4,4,3,4,3][j]+' REKAT</small>';const n=z.querySelector('b'),hak=z.querySelector('.hak');rollen(n,zahl(zustand.kaza.open[k]||0));
+ hak.onclick=()=>{const vorher=heuteKaza();if(!kazaPlus(k))return;{const [x,y]=mitte(hak);wirkung(x,y,frische()*.8)}hak.classList.remove('an');z.classList.remove('an');void hak.offsetWidth;hak.classList.add('an');z.classList.add('an');
+  setTimeout(()=>z.classList.remove('an'),220);setTimeout(()=>hak.classList.remove('an'),1100);rollen(n,zahl(zustand.kaza.open[k]));kazaText();kacheln();
+  if(vorher<5&&heuteKaza()>=5)setTimeout(versZeigen,900);
+  toast(name+' nachgeholt',()=>{kazaPlus(k,-1);rollen(n,zahl(zustand.kaza.open[k]));kazaText();kacheln()})};return z}))}
+function versZeigen(){const v=VERSE[0],o=$('vers'),w=(t,ms)=>t.split(' ').map((x,i)=>'<span class="w" style="transition-delay:'+(ms(i))+'ms">'+x+'</span>').join(' ');
+ $('versKopf').textContent=heuteKaza()+' KAZA HEUTE';$('versAr').innerHTML=w(v.ar,i=>300+i*170);const n=v.ar.split(' ').length;$('versDe').innerHTML=w(v.de,i=>500+n*170+i*55);
+ $('versQuelle').innerHTML=v.quelle+'<br>'+v.uebers;$('versQuelle').style.transitionDelay=(900+n*170+v.de.split(' ').length*55)+'ms';$('versZu').style.transitionDelay=(1200+n*170+v.de.split(' ').length*55)+'ms';
+ o.hidden=false;haptik();requestAnimationFrame(()=>requestAnimationFrame(()=>o.classList.add('an')))}
+$('versZu').onclick=()=>{const o=$('vers');haptik();o.classList.remove('an');setTimeout(()=>o.hidden=true,600)};
+function kacheln(){const off=kazaOffen(),box=$('kacheln');
+ const K=[['breit','KAZA',zahl(off),off?'OFFEN':'EINRICHTEN',()=>{kazaZeilen();kazaText();kaza.auf()}],
+  ['','drop','Abdest','WASCHUNG',()=>toast('Abdest startet (Prototyp)',()=>{})],['','beads','Tesbihat','33·33·33',()=>{tesbih.reset();tes.auf()}],
+  ['','book','Lernen','SUREN',()=>toast('Lernen öffnet sich (Prototyp)',()=>{})],['','bell','Ton','TEST',()=>{toeneZeichnen();ton.auf()}],['bald','book','Duas','BALD',null],['bald','moon','Dhikr','BALD',null]];
+ box.replaceChildren(...K.map(([art,a,b,c,fn])=>{const el=document.createElement('button');el.className='kachel press '+art;
+  if(art==='breit')el.innerHTML='<span class="mono">'+a+'</span><span><b class="num">'+b+'</b> <span class="mono">'+c+'</span></span>';
+  else el.innerHTML=icon(a)+'<span>'+b+'<br><span class="mono">'+c+'</span></span>';
+  el.onclick=()=>{haptik();if(fn)fn();else{el.classList.remove('wackeln');void el.offsetWidth;el.classList.add('wackeln')}};return el}))}
+const kaza=blatt($('kazaBlatt')),ton=blatt($('tonBlatt')),tes=blatt($('tesbihBlatt'));
+
+// Tesbihat im Blatt
+const tesbih=(()=>{const T=[['Sübhanallah','Gepriesen sei Allah'],['Elhamdülillah','Alles Lob gebührt Allah'],['Allahu ekber','Allah ist größer']];let w=0,n=0;
+ const zeigen=()=>{$('tWort').textContent=T[w][0];$('tBed').textContent=T[w][1]+' · '+(w+1)+' / 3';rollen($('tZahl'),String(n))};
+ $('tZahl').onclick=()=>{if(w>2)return;n++;haptik();if(n>=33){n=0;w++;if(w>2){$('tWort').textContent='Fertig';$('tBed').textContent='Allah kabul etsin';rollen($('tZahl'),'99');return}}zeigen()};
+ return{reset(){w=0;n=0;$('tZahl').dataset.text='';zeigen()}}})();
+
+// ---------- Erinnerungston ----------
+const TOENE=[['hicaz','Hicaz','drei Glocken im Maqam Hicaz'],['ney','Ney','gehauchter Flötenton'],['kristall','Kristall','zwei gläserne Töne']];
+let tonWahl='hicaz';try{tonWahl=localStorage.getItem('sajda-ton')||'hicaz'}catch{}const audio=new Audio();
+function spielen(n){audio.src='toene/'+n+'.m4a';audio.currentTime=0;audio.play().catch(()=>{})}
+function toeneZeichnen(){$('toene').replaceChildren(...TOENE.map(([id,n,b])=>{const el=document.createElement('button');el.className='ton press';el.setAttribute('aria-pressed',id===tonWahl);
+ el.innerHTML='<span>'+n+'<em>'+b+'</em></span><b>'+icon('play')+'</b>';el.onclick=()=>{tonWahl=id;try{localStorage.setItem('sajda-ton',id)}catch{}haptik();spielen(id);toeneZeichnen()};return el}));
+ const sicher=window.isSecureContext&&'Notification'in window;$('tonTest').textContent='Test-Erinnerung in 10 Sekunden';
+ $('tonHinweis').textContent=sicher?'Danach kannst du die Seite in den Hintergrund legen. Ist sie ganz geschlossen, braucht es Push über HTTPS (nächster Schritt).':'Ohne HTTPS: Der Ton kommt nach 10 Sekunden, solange die Seite offen ist. Echte Benachrichtigungen auf dem iPhone brauchen HTTPS und die App auf dem Homescreen.'}
+let tonUhr=0;
+$('tonTest').onclick=async()=>{haptik();const l=lage(),g=l.gebet??GEBETE[zeige],text='Zeit für das '+NAMEN[g]+' · '+hm(TAG.T[g]);
+ let darf=false;if(window.isSecureContext&&'Notification'in window){try{darf=(await Notification.requestPermission())==='granted'}catch{}}
+ audio.src='toene/'+tonWahl+'.m4a';audio.load();clearTimeout(tonUhr);toast('Erinnerung kommt in 10 Sekunden',()=>clearTimeout(tonUhr));
+ tonUhr=setTimeout(()=>{if(darf){try{new Notification('Sajda',{body:text,icon:'../icon-192.png',tag:'sajda-test'})}catch{}}spielen(tonWahl)},10000)};
+
+// ---------- echter Push (nur über den Test-Server mit HTTPS-Tunnel) ----------
+const b64=s=>{s=s.replace(/-/g,'+').replace(/_/g,'/');const r=atob(s+'='.repeat((4-s.length%4)%4));return Uint8Array.from(r,c=>c.charCodeAt(0))};
+const pushStatus=t=>$('pushStatus').textContent=t;
+async function pushAn(){haptik();if(!window.isSecureContext)return pushStatus('Nur über die HTTPS-Adresse möglich.');
+ if(!('serviceWorker'in navigator)||!('PushManager'in window))return pushStatus('Auf dem iPhone: Teilen → „Zum Home-Bildschirm“, dann Falak vom Homescreen öffnen und hier erneut tippen.');
+ try{const reg=await navigator.serviceWorker.register('sw-push.js');await navigator.serviceWorker.ready;
+  if(await Notification.requestPermission()!=='granted')return pushStatus('Mitteilungen wurden nicht erlaubt.');
+  const {schluessel}=await (await fetch('/api/push/schluessel')).json();
+  const abo=await reg.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:b64(schluessel)});
+  const r=await (await fetch('/api/push/abo',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(abo)})).json();
+  pushStatus(r.ok?'Push ist an. Jetzt „Push in 30 s“ tippen und die App schließen.':'Fehler: '+r.fehler)}catch(e){pushStatus('Fehler: '+e.message)}}
+async function pushPost(pfad,daten,ok){haptik();try{const r=await (await fetch(pfad,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(daten)})).json();pushStatus(r.ok?ok(r):'Fehler: '+r.fehler)}catch(e){pushStatus('Server nicht erreichbar.')}}
+$('pushAn').onclick=pushAn;
+$('pushTest').onclick=()=>{const l=lage(),g=l.gebet??GEBETE[ziel];pushPost('/api/push/test',{sekunden:30,text:'Zeit für das '+NAMEN[g]+' · '+hm(TAG.T[g])},()=>'Kommt in 30 Sekunden. App jetzt schließen.')};
+$('pushHeute').onclick=()=>pushPost('/api/push/heute',{},r=>r.geplant?r.geplant+' Erinnerungen für heute geplant (Stuttgart).':'Heute stehen keine Gebetszeiten mehr an.');
+
+// ---------- Zeitbogen: heutige Zeiten auf einer Bahn, der Jetzt-Punkt schrumpft, je näher die nächste Zeit rückt ----------
+const ZB={a:[14,62],c:[170,4],e:[326,62]};
+const zbPunkt=t=>{const u=1-t;return[u*u*ZB.a[0]+2*u*t*ZB.c[0]+t*t*ZB.e[0],u*u*ZB.a[1]+2*u*t*ZB.c[1]+t*t*ZB.e[1]]};
+function zbT(m){const T=TAG.T,von=T[0]-20,bis=T[5]+40;return Math.max(0,Math.min(1,(m-von)/(bis-von)))}
+// Anteil des aktuellen Gebetsfensters, der noch übrig ist (1 = gerade angefangen, 0 = gleich vorbei)
+function seitBeginn(l=lage()){if(l.gebet===null)return Infinity;const T=TAG.T;return l.m-(l.gebet===5&&l.m<T[0]?T[5]-1440:T[l.gebet])}
+function frische(l=lage()){if(l.gebet===null)return 0;const T=TAG.T,von=l.gebet===5&&l.m<T[0]?T[5]-1440:T[l.gebet];return Math.max(0,Math.min(1,(l.ende-l.m)/(l.ende-von)))}
+function zeitbogen(l){const T=TAG.T,svg=$('zbSvg'),pfad=n=>{let d='';for(let i=0;i<=n;i++){const p=zbPunkt(i/n*1);d+=(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)}return d};
+ const tj=l.m<T[0]?0:zbT(l.m),voll=[];for(let i=0;i<=40;i++){const t=i/40*tj,p=zbPunkt(t);voll.push((i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1))}
+ const rueck=l.fenster===5&&l.m>=T[5],naechst=l.naechst,marken=T.map((t,i)=>{const p=zbPunkt(zbT(t)),vorbei=t<=l.m&&l.m>=T[0],an=i===l.fenster;
+  return'<circle class="zb-punkt'+(vorbei?' vorbei':'')+(i===naechst&&!rueck?' naechst':'')+(heute.ok[i]&&i!==1?' gebetet':'')+'" cx="'+p[0]+'" cy="'+p[1]+'" r="'+(i===naechst?3.2:2.2)+'"/>'+
+   '<text class="zb-name'+(an?' an':'')+'" x="'+p[0]+'" y="'+(p[1]+(i===2||i===3?-15:16))+'">'+KURZ[i]+'</text><text class="zb-zeit'+(an?' an':'')+'" x="'+p[0]+'" y="'+(p[1]+(i===2||i===3?-24:26))+'">'+hm(t)+'</text>'}).join('');
+ const pj=zbPunkt(tj),r=(3+8*frische(l)).toFixed(1);
+ svg.innerHTML='<defs><linearGradient id="zbVerlauf"><stop offset="0" stop-color="currentColor" stop-opacity=".25"/><stop offset="1" stop-color="currentColor" stop-opacity=".9"/></linearGradient></defs>'+
+  '<path class="zb-bahn" d="'+pfad(60)+'"/><path class="zb-voll" d="'+voll.join('')+'"/>'+marken+(rueck?'<text class="zb-rueck" x="170" y="54">HEUTE · '+GEBETE.filter(i=>heute.ok[i]).length+' VON 5 GEBETET</text>':'')+'<circle id="zbHalo" cx="'+pj[0]+'" cy="'+pj[1]+'" r="'+r+'"/><circle id="zbJetzt" class="'+(l.gebet!==null&&l.ende-l.m<=15?'eile':'')+'" cx="'+pj[0]+'" cy="'+pj[1]+'" r="'+r+'"/>';$('zeitbogen').classList.toggle('rueck',rueck)}
+
+// ---------- Wirkung: je früher im Gebetsfenster, desto größer ----------
+const STERNCHEN='<svg class="funke" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12"/><rect x="6" y="6" width="12" height="12" transform="rotate(45 12 12)"/></svg>';
+function wirkung(x,y,staerke){const s=Math.max(.12,staerke),box=$('funken'),n=Math.round(5+s*34),weit=50+s*190;
+ for(let i=0;i<n;i++){const d=document.createElement('div');d.innerHTML=STERNCHEN;const f=d.firstChild;f.style.left=x+'px';f.style.top=y+'px';box.append(f);
+  const w=Math.random()*Math.PI*2,r=weit*(.45+Math.random()*.55),gr=.5+Math.random()*s*1.3;
+  f.animate([{transform:'translate(0,0) scale(.2) rotate(0)',opacity:1},{transform:'translate('+Math.cos(w)*r+'px,'+Math.sin(w)*r+'px) scale('+gr+') rotate('+(Math.random()*180)+'deg)',opacity:0}],
+   {duration:700+s*900+Math.random()*300,easing:'cubic-bezier(.2,.8,.2,1)'}).onfinish=()=>f.remove()}
+ for(let k=0;k<(s>.6?3:s>.3?2:1);k++){const wl=document.createElement('div');wl.className='welle';const g=40;wl.style.cssText+='left:'+(x-g/2)+'px;top:'+(y-g/2)+'px;width:'+g+'px;height:'+g+'px';box.append(wl);
+  wl.animate([{transform:'scale(.6)',opacity:.8},{transform:'scale('+(2+s*9)+')',opacity:0}],{duration:900+s*700,delay:k*140,easing:'cubic-bezier(.2,.8,.2,1)'}).onfinish=()=>wl.remove()}
+ if(s>.15){const lob=document.createElement('div');lob.className='lob';lob.style.top=(y-62)+'px';lob.textContent=s>.8?'ERSTE ZEIT · ALLAH KABUL ETSIN':s>.5?'FRÜH GEBETET · MASHALLAH':'ALLAH KABUL ETSIN';$('funken').append(lob);
+  lob.animate([{opacity:0,transform:'translateY(6px)'},{opacity:1,transform:'none',offset:.2},{opacity:1,offset:.75},{opacity:0}],{duration:2200}).onfinish=()=>lob.remove()}
+ haptik();if(s>.4)setTimeout(haptik,120);if(s>.75)setTimeout(haptik,240)}
+const mitte=el=>{const r=el.getBoundingClientRect();return[r.left+r.width/2,r.top+r.height/2]};
+
+function zeichnen(){const l=lage(),nacht=l.m<TAG.T[1]-10||l.m>TAG.T[4]+10;document.body.classList.toggle('nacht',nacht);
+ $('datum').textContent='SAJDA · '+new Date().toLocaleDateString('de-DE',{weekday:'short',day:'numeric',month:'short'}).toUpperCase()+' · '+TAG.hijri.toUpperCase();
+ for(const k of karten){const s=status(k.g,l);k.el.classList.toggle('zu',s==='zu');k.el.classList.toggle('jetzt',s==='jetzt');k.el.classList.toggle('vorbei',s==='vorbei');k.el.classList.toggle('erste',!!heute.erste?.[k.g]);k.el.querySelector('.schloss').style.display=s==='zu'?'':'none';k.el.querySelector('.zeit').textContent=hm(TAG.T[k.g])+(s==='jetzt'&&VAR!=='walze'?' · JETZT':'')}
+ info();kacheln();zeitbogen(l)}
+zeitenLaden().then(()=>{const l=lage();let start=l.gebet===null?GEBETE.findIndex(g=>TAG.T[g]>l.m):GEBETE.indexOf(l.gebet);if(start<0)start=0;
+ ziel=pos=zeige=letzteStufe=start;karten.forEach(k=>k.p=start+(k.j-start)*1.8+3);zeichnen();setInterval(()=>{if(demoMinute===null)zeichnen()},1000);umschalter('d',zeichnen)});
+</script></body></html>

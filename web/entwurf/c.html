@@ -1,0 +1,72 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Waqt · Sajda</title><link rel="stylesheet" href="basis.css">
+<style>
+:root{--hell:#f3f3f1;--dunkel:#e3e3e0;--ink:#161617;--gruen:#1f4d3f;--mono:ui-monospace,'SF Mono',Menlo,monospace}
+body{background:var(--hell);color:var(--ink);font-family:-apple-system,'SF Pro Display',sans-serif;transition:background 1.2s,color 1.2s}
+body.nacht{--hell:#0e0e0f;--dunkel:#1b1b1d;--ink:#ededeb;--gruen:#9fd3bd}
+/* der Bildschirm ist der Balken: die Fläche steigt, während die Gebetszeit vergeht */
+#flut{position:fixed;left:0;right:0;bottom:0;height:0;background:var(--dunkel);transition:height 1.2s cubic-bezier(.2,.8,.2,1),background 1.2s}
+#flut::before{content:'';position:absolute;left:0;right:0;top:-1px;height:1px;background:var(--ink);opacity:.18}
+.mono{font-family:var(--mono);font-size:11px;letter-spacing:.14em}
+#oben{position:fixed;top:max(18px,env(safe-area-inset-top));left:24px;right:140px;opacity:.55;transition:opacity .6s}
+#mitte{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;pointer-events:none}
+#zahl{font-size:min(31vw,150px);font-weight:100;letter-spacing:-.06em;line-height:.9;font-variant-numeric:tabular-nums}
+#zahl .roll span.neu{animation:rollW .9s cubic-bezier(.2,.8,.2,1)}
+@keyframes rollW{from{transform:translateY(40%);opacity:0;filter:blur(6px)}}
+#wort{font-size:17px;font-weight:400;opacity:.6;letter-spacing:-.01em}
+#zeiten{position:fixed;left:24px;right:24px;bottom:calc(max(18px,env(safe-area-inset-bottom)) + 44px);display:flex;justify-content:space-between;opacity:0;transform:translateY(8px);transition:opacity .6s,transform .8s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+#zeiten.an{opacity:1;transform:none}
+#zeiten span{display:flex;flex-direction:column;align-items:center;gap:4px;opacity:.45}
+#zeiten span.an{opacity:1;color:var(--gruen)}
+#zeiten b{font-size:12px;font-weight:600}
+#unten{position:fixed;left:0;right:0;bottom:max(18px,env(safe-area-inset-bottom));text-align:center;opacity:.4;transition:opacity .6s}
+/* Halten zum Beginnen */
+#ring{position:fixed;width:120px;height:120px;margin:-60px 0 0 -60px;pointer-events:none;opacity:0;transform:scale(.6);transition:opacity .25s,transform .5s cubic-bezier(.2,.8,.2,1)}
+#ring.an{opacity:1;transform:none}
+#ring circle{fill:none;stroke:var(--gruen);stroke-width:1.5;stroke-linecap:round}
+#ring .spur{stroke:var(--ink);opacity:.1}
+#ring .voll{stroke-dasharray:352;stroke-dashoffset:352;transform:rotate(-90deg);transform-origin:center}
+#ring.an .voll{transition:stroke-dashoffset .9s linear;stroke-dashoffset:0}
+#blende{position:fixed;inset:0;background:var(--gruen);opacity:0;pointer-events:none;display:grid;place-items:center;color:#fff}
+#blende p{margin:0;font-family:var(--mono);font-size:11px;letter-spacing:.2em;opacity:0}
+.toast{background:var(--ink);color:var(--hell)}
+</style></head><body>
+<div id="flut"></div>
+<div id="oben" class="mono"></div>
+<div id="mitte"><div id="zahl"></div><div id="wort"></div></div>
+<div id="zeiten" class="mono"></div>
+<div id="unten" class="mono"></div>
+<svg id="ring" viewBox="0 0 120 120"><circle class="spur" cx="60" cy="60" r="56"/><circle class="voll" cx="60" cy="60" r="56"/></svg>
+<div id="blende"><p id="blendeText"></p></div>
+<script src="basis.js"></script>
+<script>
+// Waqt: nur die Zeit. Antippen zeigt kurz den Tag, Halten beginnt das Gebet.
+let zeitenUhr=0;
+function zeichnen(){const l=lage(),T=TAG.T,nacht=l.m<T[1]-10||l.m>T[4]+10;document.body.classList.toggle('nacht',nacht);
+ const g=l.gebet;$('oben').textContent='WAQT · '+(g===null?(l.kerahat?'KERAHAT':'VORMITTAG'):KURZ[g].toUpperCase());
+ let rest,wort;
+ if(g!==null){rest=l.ende-l.m;wort=NAMEN[g]+' · noch bis '+hm(l.ende)}
+ else{rest=l.rest;wort=(l.kerahat?'Kurze Pause · ':'')+(l.naechst===1?'Sonnenaufgang':NAMEN[l.naechst])+' um '+hm(l.um)}
+ rollen($('zahl'),dauer(rest).replace(' min',''));$('wort').textContent=wort;
+ // Fläche: wie viel vom Fenster schon vergangen ist
+ let anteil=0;if(g!==null){const von=g===5&&l.m<T[0]?T[5]-1440:T[g];anteil=(l.m-von)/(l.ende-von)}
+ $('flut').style.height=(Math.max(0,Math.min(1,anteil))*100).toFixed(2)+'%';
+ $('unten').textContent=g===null?'ANTIPPEN · DER TAG':'HALTEN ZUM BEGINNEN';
+ $('zeiten').innerHTML=T.map((t,i)=>'<span class="'+(i===l.fenster?'an':'')+'"><b>'+KURZ[i]+'</b>'+hm(t)+'</span>').join('')}
+// Antippen: Zeiten kurz einblenden
+function tagZeigen(){haptik();$('zeiten').classList.add('an');$('unten').style.opacity=0;clearTimeout(zeitenUhr);zeitenUhr=setTimeout(()=>{$('zeiten').classList.remove('an');$('unten').style.opacity=''},2600)}
+// Halten: Ring füllt sich unter dem Finger, dann Blende
+let halten=null;
+document.addEventListener('pointerdown',e=>{if(e.target.closest('.wahl,.regler,.toast'))return;const l=lage();const r=$('ring');r.style.left=e.clientX+'px';r.style.top=e.clientY+'px';
+ halten={t:performance.now(),x:e.clientX,y:e.clientY,ok:l.gebet!==null};if(!halten.ok)return;
+ halten.uhr=setTimeout(()=>{r.classList.add('an');haptik()},180);halten.fertig=setTimeout(()=>beginnen(),180+900)});
+const loslassen=e=>{if(!halten)return;clearTimeout(halten.uhr);clearTimeout(halten.fertig);$('ring').classList.remove('an');const kurz=performance.now()-halten.t<260;halten=null;if(kurz&&e.type==='pointerup')tagZeigen()};
+document.addEventListener('pointerup',loslassen);document.addEventListener('pointercancel',loslassen);
+document.addEventListener('pointermove',e=>{if(halten&&Math.hypot(e.clientX-halten.x,e.clientY-halten.y)>14)loslassen(e)});
+function beginnen(){const l=lage(),g=l.gebet;halten=null;$('ring').classList.remove('an');haptik();setTimeout(haptik,110);
+ const b=$('blende');$('blendeText').textContent=NAMEN[g].toUpperCase()+' · BISMILLAH';
+ b.animate([{opacity:0},{opacity:1,offset:.25},{opacity:1,offset:.7},{opacity:0}],{duration:2200,easing:'ease-in-out'});
+ $('blendeText').animate([{opacity:0,letterSpacing:'.5em'},{opacity:1,letterSpacing:'.2em',offset:.4},{opacity:1,offset:.7},{opacity:0}],{duration:2200,easing:'ease-out'});
+ setTimeout(()=>toast(NAMEN[g]+' startet (Prototyp)',()=>{}),2000)}
+document.addEventListener('contextmenu',e=>e.preventDefault());
+zeitenLaden().then(()=>{zeichnen();setInterval(()=>{if(demoMinute===null)zeichnen()},1000);umschalter('c',zeichnen)});
+</script></body></html>

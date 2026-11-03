@@ -38,6 +38,9 @@ open(pfad, "w").write(html)
 
 dateien, h = [], hashlib.sha1()
 for wurzel, _, namen in sorted(os.walk(WEB)):
+    # Entwürfe (web/entwurf) haben ihren eigenen Service Worker und kommen nicht in den Offline-Speicher der App
+    if os.path.relpath(wurzel, WEB).split(os.sep)[0] == "entwurf":
+        continue
     for n in sorted(namen):
         # Stadt-Tabellen nicht vorab laden – nur die gewählte Stadt kommt beim ersten Abruf in den Speicher
         if n in ("sw.js", ".DS_Store", "diyanet-stuttgart.json") or n.startswith("diyanet-"):

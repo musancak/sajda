@@ -171,3 +171,71 @@ body.fokus:not(.fokus-mehr-offen) #reader #pacePlay{padding:10px 16px;font-size:
 @media(max-height:700px){.g-tempo-text{font-size:20px}.g-mic{width:64px;height:64px;font-size:26px}}
 .g-punkte{min-width:0}
 @media(max-width:360px){.g-fuss{gap:6px}.g-punkte{gap:4px}.g-punkte i{width:5px;height:5px}.g-punkte i.an{width:12px}.g-skip{font-size:14px}.g-fuss .primary{padding:11px 14px}}
+/* Kaza-Zähler: ruhige Karten, große Zahl, alles auf einem Bildschirm */
+#kaza{gap:12px}
+.kaza-top{display:flex;align-items:center;justify-content:space-between;flex:none}
+.kaza-top h1{font-size:32px}
+.kaza-icon,.kaza-btn{width:44px;height:44px;padding:0;display:grid;place-items:center;flex:none;transition:transform .15s,background .2s,opacity .2s}
+.kaza-icon{border-radius:50%;background:#fffdf8;border:1px solid rgb(32 61 52/10%)}
+.kaza-icon svg,.kaza-btn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.kaza-hero{flex:none;background:linear-gradient(155deg,#e6eedf,#f2eee1);border-radius:24px;padding:18px 20px}
+#kazaStats{display:grid;gap:10px}
+.kaza-big{display:flex;align-items:baseline;gap:10px}
+.kaza-big strong{font-size:52px;line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.kaza-big span{font-size:17px;color:#476253}
+.kaza-bar{height:6px;border-radius:99px;background:rgb(32 61 52/10%);overflow:hidden}
+.kaza-bar div{height:100%;border-radius:inherit;background:#315c49;transition:width .6s cubic-bezier(.2,.8,.2,1)}
+#kazaSub,.kaza-hint{font-size:14px;color:#5f6f62}
+#kazaEmpty{display:grid;gap:8px}
+#kazaEmpty strong{font-size:21px;line-height:1.25}
+#kazaEmpty p{font-size:14px;color:#5f6f62}
+.kaza-empty-actions{display:flex;gap:8px;margin-top:4px}
+.kaza-empty-actions button{flex:1;padding:12px 10px;font-size:15px;border-radius:14px}
+#kazaList{list-style:none;margin:0;padding:0;flex:1;min-height:0;display:flex;flex-direction:column;gap:8px;max-height:450px}
+.kaza-row{flex:1 1 0;min-height:46px;max-height:68px;display:flex;align-items:center;gap:10px;padding:0 8px 0 16px;background:#fffdf8;border:1px solid rgb(32 61 52/6%);border-radius:18px;box-shadow:0 4px 18px rgb(32 61 52/5%)}
+.kaza-name{flex:1;min-width:0}
+.kaza-name strong{display:block;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kaza-name small{font-size:12px;color:#6a7969}
+.kaza-count{text-align:end;font-variant-numeric:tabular-nums;min-width:52px}
+.kaza-count strong{display:block;font-size:22px;line-height:1.1}
+.kaza-count small{font-size:11px;color:#6a7969}
+.kaza-btn{border:0;border-radius:14px;background:#e9efe3;color:#204f40}
+.kaza-btn.check{background:#204f40;color:#fff}
+.kaza-btn:active{transform:scale(.92)}
+.kaza-btn:disabled{opacity:.25}
+.kaza-row input{width:84px;padding:10px 6px;text-align:center;font:inherit;font-size:20px;font-variant-numeric:tabular-nums;border:1px solid rgb(32 61 52/15%);border-radius:12px;background:#fff;color:inherit}
+.kaza-row.is-zero .kaza-name,.kaza-row.is-zero .kaza-count{opacity:.45}
+.kaza-row.pop .kaza-count strong{animation:kzpop .5s cubic-bezier(.2,.8,.2,1)}
+.kaza-row.pop{animation:kzglow .7s}
+@keyframes kzpop{35%{transform:translateY(-4px) scale(1.08);color:#315c49}}
+@keyframes kzglow{30%{background:#eef4e8}}
+.kaza-foot{flex:none;display:flex;justify-content:space-between;gap:6px}
+.kaza-foot button{padding:8px 4px;color:#315c49;font-weight:600}
+.kaza-foot button.active{color:#fff;background:#204f40;padding:8px 14px;border-radius:12px}
+.kaza-local{flex:none;text-align:center;font-size:12px;color:#7a877b;margin-top:-6px}
+.kaza-toast{position:fixed;left:50%;width:max-content;bottom:max(20px,env(safe-area-inset-bottom));z-index:9;display:flex;align-items:center;gap:14px;max-width:calc(100% - 32px);padding:10px 10px 10px 18px;border-radius:18px;background:#183c33;color:#fff;font-size:15px;box-shadow:0 10px 30px rgb(24 60 51/25%);opacity:0;pointer-events:none;transform:translate(-50%,16px);transition:opacity .25s,transform .35s cubic-bezier(.2,.8,.2,1)}
+.kaza-toast.show{opacity:1;pointer-events:auto;transform:translate(-50%,0)}
+.kaza-toast button{padding:8px 12px;border:0;border-radius:12px;background:rgb(255 255 255/14%);color:#fff;font-size:14px;font-weight:700;white-space:nowrap}
+.kaza-sheet{border:0;border-radius:24px;padding:22px 20px 18px;width:min(440px,calc(100% - 32px));max-height:calc(100dvh - 32px);background:#fffdf8;color:var(--ink);box-shadow:0 20px 60px rgb(24 60 51/25%)}
+.kaza-sheet::backdrop{background:rgb(24 60 51/35%)}
+.kaza-sheet[open]{display:flex;flex-direction:column;gap:12px}
+.kaza-sheet h2{margin:0;font-size:22px}
+.kaza-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.kaza-fields label{display:grid;gap:4px;font-size:13px;color:#5f6f62}
+.kaza-sheet input[type=number]{width:100%;padding:10px 12px;font:inherit;font-size:20px;border:1px solid rgb(32 61 52/15%);border-radius:12px;background:#fff;color:inherit;font-variant-numeric:tabular-nums}
+.kaza-label{font-size:14px;font-weight:600}
+.kaza-chips{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.kaza-chips button{padding:10px 2px;font-size:13px;border-radius:12px}
+.kaza-chips button[aria-pressed=true]{background:#204f40;border-color:#204f40;color:#fff}
+.kaza-line{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:14px}
+.kaza-line input[type=number]{width:72px;flex:none}
+.kaza-line input[type=checkbox]{width:22px;height:22px;accent-color:#204f40}
+.kaza-preview{padding:12px 14px;border-radius:14px;background:#eef3e8;font-weight:700;font-variant-numeric:tabular-nums}
+.kaza-sheet-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:4px}
+.kaza-sheet-actions button{padding:11px 16px;border-radius:14px;font-size:15px}
+#kazaInfoList{margin:0;padding-inline-start:20px;display:grid;gap:8px;font-size:15px;line-height:1.45}
+#kazaSource{font-size:13px;color:#5f6f62}
+#kazaCode{width:100%;font:13px ui-monospace,monospace;padding:10px;border-radius:12px;border:1px solid rgb(32 61 52/15%);resize:none;word-break:break-all}
+.kaza-kachel{cursor:pointer;border-style:solid;background:#fffdf8;color:#183c33}
+@media(max-height:700px){.kaza-top h1{font-size:26px}.kaza-hero{padding:14px 16px}.kaza-big strong{font-size:40px}#kazaList{gap:6px}.kaza-local{display:none}}
+@media(prefers-reduced-motion:reduce){.kaza-row.pop,.kaza-row.pop .kaza-count strong{animation:none}.kaza-toast,.kaza-bar div{transition:none}}
