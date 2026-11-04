@@ -9,6 +9,8 @@ h1{margin:4px 0 2px;font-size:32px;letter-spacing:-.035em}
  opacity:0;transform:translateY(18px);animation:rein .7s var(--spring) forwards;transition:background .4s,color .4s}
 .format:nth-child(2){animation-delay:.05s}.format:nth-child(3){animation-delay:.1s}.format:nth-child(4){animation-delay:.15s}.format:nth-child(5){animation-delay:.2s}
 @keyframes rein{to{opacity:1;transform:none}}
+.format.bald .seite:first-child{opacity:.5}
+.marke-bald{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;font-weight:600;letter-spacing:.04em;background:rgb(0 0 0/8%);border-radius:999px;padding:2px 7px;margin-left:auto;align-self:center;white-space:nowrap}
 .format[aria-pressed=true]{background:linear-gradient(160deg,#2c2c30,#18181b);color:#f5f5f7}
 .schiene{display:flex;width:200%;height:100%;transition:transform .75s var(--spring)}
 .format.zeigt .schiene{transform:translateX(-50%)}
@@ -103,13 +105,15 @@ const FILM={
  Lawh:['la','<i class="t" style="left:5px;top:34px;width:40px;height:16px"></i><i class="t" style="left:5px;top:54px;width:18px;height:16px"></i><i class="t" style="left:27px;top:54px;width:18px;height:16px"></i><i class="t" style="left:5px;top:74px;width:40px;height:12px"></i><i class="t g"></i>',['Alles als Karten','Eine Karte wächst zur ganzen Seite','Wischen, und sie schrumpft zurück']],
  Waqt:['wa','<i class="fl"></i><i class="zz"></i><i class="wo"></i><i class="rg"></i><i class="bl"></i>',['Nur die Zeit, ganz groß','Die Fläche steigt mit der Gebetszeit','Halten, und das Gebet beginnt']],
  Falak:['fa','<i class="bahn"></i><i class="pe" style="animation-name:p1"></i><i class="pe" style="animation-name:p2"></i><i class="pe g" style="animation-name:p3"></i><i class="pe r" style="animation-name:p4"></i><i class="pe r" style="animation-name:p5"></i><i class="p"></i><i class="t1"></i><i class="t2"></i><i class="sg"></i><i class="k" style="left:4px;width:20px"></i><i class="k" style="left:26px;width:9px"></i><i class="k" style="left:37px;width:9px"></i>',['Die Gebete wie Perlen auf ihrer Bahn','Wischen dreht den Tag weiter','Spätere Gebete sind noch verschlossen']]};
-let wahl='d';try{wahl=localStorage.getItem('sajda-format')||'d'}catch{}
+// nur Fitra und Falak sind frei, die anderen kommen bald
+const BALD=new Set(['a','b','c']);
+let wahl='d';try{wahl=localStorage.getItem('sajda-format')||'d'}catch{}if(BALD.has(wahl))wahl='d';
 const uhren=new Map();
-function zeichnen(){$('liste').replaceChildren(...FORMATE.map(([datei,name,text])=>{const b=document.createElement('button');b.className='format press';b.setAttribute('aria-pressed',datei===wahl);
+function zeichnen(){$('liste').replaceChildren(...FORMATE.map(([datei,name,text])=>{const b=document.createElement('button');b.className='format press'+(BALD.has(datei)?' bald':'');b.setAttribute('aria-pressed',datei===wahl);
  const [cls,inhalt,zeilen]=FILM[name];
- b.innerHTML='<div class="schiene"><div class="seite"><svg viewBox="0 0 48 48" aria-hidden="true">'+BILD[name]+'</svg><span><b>'+name+'<i>'+ARAB[name]+'</i></b><em>'+text+'</em></span></div>'+
+ b.innerHTML='<div class="schiene"><div class="seite"><svg viewBox="0 0 48 48" aria-hidden="true">'+BILD[name]+'</svg><span><b>'+name+'<i>'+ARAB[name]+'</i>'+(BALD.has(datei)?'<span class="marke-bald">BALD VERFÜGBAR</span>':'')+'</b><em>'+text+'</em></span></div>'+
   '<div class="seite" style="position:relative"><div class="handy '+cls+'">'+inhalt+'</div><span class="film"><b>'+name+'<i>'+ARAB[name]+'</i></b><small>VORSCHAU</small><em>'+zeilen[0]+'</em></span><i class="balken"></i></div></div>';
- b.onclick=()=>{wahl=datei;try{localStorage.setItem('sajda-format',datei)}catch{}haptik();
+ b.onclick=()=>{if(BALD.has(datei)){haptik();vorspielen(b);return}wahl=datei;try{localStorage.setItem('sajda-format',datei)}catch{}haptik();
   document.querySelectorAll('.format').forEach((x,i)=>x.setAttribute('aria-pressed',FORMATE[i][0]===wahl));vorspielen(b)};return b}))}
 // Film: Kachel gleitet zur Vorschau, spielt einmal ab, gleitet zurück
 function vorspielen(b){for(const [x,u] of uhren){clearTimeout(u);x.classList.remove('zeigt','laeuft')}uhren.clear();
