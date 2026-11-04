@@ -61,6 +61,22 @@ body.nacht{background:#1b1b1d;color:#ececee}
 .nacht .kachel.breit{background:linear-gradient(160deg,#5a5a5f,#3c3c40);color:#f5f5f7}
 .kachel.breit b{font-size:28px;letter-spacing:-.03em;font-weight:700;line-height:1}
 .kachel.bald{background:transparent;color:inherit;box-shadow:none;border:1px dashed rgb(0 0 0/22%);opacity:.7}.nacht .kachel.bald{border-color:rgb(255 255 255/22%)}
+/* Gemeinsam: Globus-Blatt */
+.kachel.gm{background:linear-gradient(160deg,#2e4a6e,#1f3550)}
+.gm-blatt{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.gm-kopf{display:flex;align-items:center;gap:8px}.gm-kopf h2{margin:0}
+.gm-live{font-size:10px;color:#8a5a12;background:#f6e6c2;border-radius:99px;padding:3px 8px}
+#gmCanvas{display:block;cursor:grab;filter:drop-shadow(0 10px 24px rgb(32 61 52/14%))}#gmCanvas:active{cursor:grabbing}
+.gm-legende{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.gm-chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;border-radius:99px;padding:4px 10px 4px 8px;background:rgb(0 0 0/5%)}.nacht .gm-chip{background:rgb(255 255 255/7%)}
+.gm-chip::before{content:"";width:9px;height:9px;border-radius:3px;background:var(--c)}.gm-chip.hier{font-weight:700;box-shadow:inset 0 0 0 1.5px var(--c)}
+.gm-balken{width:100%;max-width:420px;text-align:left;padding:12px 14px;border-radius:14px;background:rgb(0 0 0/5%)}.nacht .gm-balken{background:rgb(255 255 255/7%)}
+.gm-zeile{display:flex;justify-content:space-between;opacity:.7}.gm-balken b{display:block;font-size:30px;font-weight:700;letter-spacing:-.03em;margin:4px 0 8px}
+.gm-bahn{height:7px;border-radius:4px;background:rgb(0 0 0/8%);overflow:hidden}.nacht .gm-bahn{background:rgb(255 255 255/10%)}.gm-bahn i{display:block;height:100%;width:0;border-radius:inherit;background:#d6a33f;transition:width 2.4s var(--ease)}
+.gm-balken .hinweis{margin-top:8px}
+.gm-mit{width:100%;max-width:420px;display:flex;align-items:flex-start;gap:10px;text-align:left;cursor:pointer}.gm-mit input{width:20px;height:20px;margin:2px 0 0;accent-color:#1f4d3f;flex:none}
+.gm-mit small{display:block;font-size:12px;opacity:.6;line-height:1.35;margin-top:2px}
+@media(max-height:700px){.gm-mit small{display:none}}
 .kachel.wackeln{animation:wackel .4s}@keyframes wackel{25%{translate:-4px}75%{translate:4px}}
 .blatt{background:#f2f2f4;color:#1d1d1f}.nacht .blatt{background:#202023;color:#ececee}
 .kz-zeile{background:rgb(0 0 0/5%)}.nacht .kz-zeile{background:rgb(255 255 255/7%)}
@@ -183,7 +199,7 @@ body:not(.v-karten) .zeitbogen{top:calc(max(14px,env(safe-area-inset-top)) + 64p
 <div id="vers" class="vers" hidden><div class="vers-in"><span class="mono" id="versKopf"></span><p class="arab" dir="rtl" lang="ar" id="versAr"></p><p class="de" id="versDe"></p><span class="mono quelle" id="versQuelle"></span><button class="los press" id="versZu">Allah kabul etsin</button></div></div>
 <div class="blatt" id="tonBlatt"><div class="griff"></div><h2>Erinnerung</h2><p class="hinweis">Ton zur Gebetszeit wählen und testen.</p><div class="wahlton" id="toene"></div><button class="los" id="tonTest"></button><p class="hinweis" id="tonHinweis"></p><div class="zwei" id="pushKnoepfe" style="max-width:none"><button class="los press" id="pushAn">Push aktivieren</button><button class="los press" id="pushTest">Push in 30 s</button></div><button class="los press" id="pushHeute" style="max-width:none;background:rgb(0 0 0/8%);color:inherit;box-shadow:none">Heute zu allen Gebetszeiten</button><p class="hinweis" id="pushStatus"></p></div>
 <div class="blatt" id="tesbihBlatt"><div class="griff"></div><h2 id="tWort">Sübhanallah</h2><p class="hinweis" id="tBed"></p><button class="zaehl num press" id="tZahl">0</button><p class="hinweis" style="text-align:center">antippen · 33 je Wort</p></div>
-<script src="basis.js"></script>
+<script src="basis.js"></script><script src="../globus-land.js"></script>
 <script>
 const STERN_LOCK='<svg class="schloss" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9.5" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>';
 const GEBETE=[0,2,3,4,5];
@@ -252,14 +268,14 @@ function info(){const l=lage(),g=GEBETE[zeige],s=status(g,l);
  const pl=$('play');pl.className=s==='jetzt'?'live':s==='zu'?'zu':'';if(s==='vorbei')pl.dataset.weg=1;else delete pl.dataset.weg;
  pl.innerHTML=s==='zu'?STERN_LOCK.replace('class="schloss"','class="i"'):icon('play');
  pl.onclick=()=>{if(s==='zu'){haptik();const k=karten[zeige].el;k.animate([{translate:'0'},{translate:'-6px'},{translate:'6px'},{translate:'0'}],{duration:320});return}
-  const [x,y]=mitte(pl);wirkung(x,y,frische(l));heute.ok[g]=true;if(seitBeginn(l)<=10)(heute.erste??={})[g]=true;heuteSpeichern();setTimeout(zeichnen,400);setTimeout(()=>toast(NAMEN[g]+' · '+TEILE[g][gewaehlt[g]??0][1]+' startet (Prototyp)',()=>{}),500)};
+  const [x,y]=mitte(pl);wirkung(x,y,frische(l));if(!heute.ok[g])gmGebet();heute.ok[g]=true;if(seitBeginn(l)<=10)(heute.erste??={})[g]=true;heuteSpeichern();setTimeout(zeichnen,400);setTimeout(()=>toast(NAMEN[g]+' · '+TEILE[g][gewaehlt[g]??0][1]+' startet (Prototyp)',()=>{}),500)};
  const schluessel=g+s+(heute.ok[g]?'ok':'');if(schluessel===altSchluessel)return;altSchluessel=schluessel;
  const a=$('iAktion');a.replaceChildren();
  if((s==='jetzt'||s==='zu')&&VAR!=='karten'){const teile=TEILE[g];const seg=document.createElement('div');seg.className='seg';const daumen=document.createElement('i');daumen.className='daumen';seg.append(daumen);
   const setze=x=>{gewaehlt[g]=x;const b=seg.querySelectorAll('button')[x];daumen.style.left=b.offsetLeft+'px';daumen.style.width=b.offsetWidth+'px'};
   teile.forEach(([id,n],x)=>{const b=document.createElement('button');b.textContent=n;b.onclick=()=>{haptik();setze(x)};seg.append(b)});a.append(seg);requestAnimationFrame(()=>setze(gewaehlt[g]))}
  else{const z=document.createElement('div');z.className='zwei';const ok=document.createElement('button');ok.className='los press';ok.innerHTML=icon('check')+'<span>'+(heute.ok[g]?'Gebetet':'Gebetet?')+'</span>';
-  ok.onclick=()=>{heute.ok[g]=!heute.ok[g];heuteSpeichern();if(heute.ok[g]){const [x,y]=mitte(ok);wirkung(x,y,.12)}else haptik();altSchluessel='';info()};const kz=document.createElement('button');kz.className='los press';kz.innerHTML='<span>Verpasst · zu Kaza</span>';
+  ok.onclick=()=>{heute.ok[g]=!heute.ok[g];heuteSpeichern();if(heute.ok[g]){const [x,y]=mitte(ok);wirkung(x,y,.12);gmGebet()}else haptik();altSchluessel='';info()};const kz=document.createElement('button');kz.className='los press';kz.innerHTML='<span>Verpasst · zu Kaza</span>';
   kz.onclick=()=>{const k=KAZA_KEY[g];zustand.kaza.open[k]=(zustand.kaza.open[k]||0)+1;speichern();haptik();kacheln();toast(NAMEN[g]+' zu Kaza hinzugefügt',()=>{zustand.kaza.open[k]--;speichern();kacheln()})};z.append(ok,kz);a.append(z)}}
 function sub(l,g,s){const ende=g===0?TAG.T[1]:g===5?TAG.morgenImsak+1440:TAG.T[g+1];
  $('iSub').textContent=s==='jetzt'?'noch '+dauer(l.ende-l.m)+(l.ende-l.m>=60?' Std.':'')+' · bis '+hm(l.ende):s==='zu'?'ab '+hm(TAG.T[g])+' · in '+dauer(TAG.T[g]-l.m)+(TAG.T[g]-l.m>=60?' Std.':''):hm(TAG.T[g])+' – '+hm(ende)}
@@ -288,7 +304,7 @@ $('versZu').onclick=()=>{const o=$('vers');haptik();o.classList.remove('an');set
 function kacheln(){const off=kazaOffen(),box=$('kacheln');
  const K=[['breit','KAZA',zahl(off),off?'OFFEN':'EINRICHTEN',()=>{kazaZeilen();kazaText();kaza.auf()}],
   ['','drop','Abdest','WASCHUNG',()=>toast('Abdest startet (Prototyp)',()=>{})],['','beads','Tesbihat','33·33·33',()=>{tesbih.reset();tes.auf()}],
-  ['','book','Lernen','SUREN',()=>toast('Lernen öffnet sich (Prototyp)',()=>{})],['','bell','Ton','TEST',()=>{toeneZeichnen();ton.auf()}],['bald','book','Duas','BALD',null],['bald','moon','Dhikr','BALD',null]];
+  ['','book','Lernen','SUREN',()=>toast('Lernen öffnet sich (Prototyp)',()=>{})],['','bell','Ton','TEST',()=>{toeneZeichnen();ton.auf()}],['bald','book','Duas','BALD',null],['gm','globe','Globus',typeof gmKachelText==='function'?gmKachelText():'GEMEINSAM',()=>gmAuf()]];
  box.replaceChildren(...K.map(([art,a,b,c,fn])=>{const el=document.createElement('button');el.className='kachel press '+art;
   if(art==='breit')el.innerHTML='<span class="mono">'+a+'</span><span><b class="num">'+b+'</b> <span class="mono">'+c+'</span></span>';
   else el.innerHTML=icon(a)+'<span>'+b+'<br><span class="mono">'+c+'</span></span>';
@@ -367,4 +383,4 @@ function zeichnen(){const l=lage(),nacht=l.m<TAG.T[1]-10||l.m>TAG.T[4]+10;docume
  info();kacheln();zeitbogen(l)}
 zeitenLaden().then(()=>{const l=lage();let start=l.gebet===null?GEBETE.findIndex(g=>TAG.T[g]>l.m):GEBETE.indexOf(l.gebet);if(start<0)start=0;
  ziel=pos=zeige=letzteStufe=start;karten.forEach(k=>k.p=start+(k.j-start)*1.8+3);zeichnen();setInterval(()=>{if(demoMinute===null)zeichnen()},1000);umschalter('d',zeichnen)});
-</script></body></html>
+</script><script src="gemeinsam.js"></script></body></html>
