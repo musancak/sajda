@@ -1,4 +1,4 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Falak · Sajda</title><link rel="stylesheet" href="basis.css"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="../icon-180.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Falak">
+<!doctype html><html lang="de"><head><meta charset="utf-8"><script>try{if((matchMedia("(display-mode: standalone)").matches||navigator.standalone)&&localStorage.getItem("sajda-format")==="../index")location.replace("../index.html")}catch(e){}</script><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Falak · Sajda</title><link rel="stylesheet" href="basis.css"><link rel="manifest" href="../manifest.webmanifest"><link rel="apple-touch-icon" href="../icon-180.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Sajda">
 <style>
 [hidden]{display:none!important}
 :root{--cw:min(50vw,220px);--ch:calc(var(--cw)*1.4);--mono:ui-monospace,'SF Mono',Menlo,monospace}
@@ -319,7 +319,7 @@ $('tonTest').onclick=async()=>{haptik();const l=lage(),g=l.gebet??GEBETE[zeige],
 const b64=s=>{s=s.replace(/-/g,'+').replace(/_/g,'/');const r=atob(s+'='.repeat((4-s.length%4)%4));return Uint8Array.from(r,c=>c.charCodeAt(0))};
 const pushStatus=t=>$('pushStatus').textContent=t;
 async function pushAn(){haptik();if(!window.isSecureContext)return pushStatus('Nur über die HTTPS-Adresse möglich.');
- if(!('serviceWorker'in navigator)||!('PushManager'in window))return pushStatus('Auf dem iPhone: Teilen → „Zum Home-Bildschirm“, dann Falak vom Homescreen öffnen und hier erneut tippen.');
+ if(!('serviceWorker'in navigator)||!('PushManager'in window))return pushStatus('Auf dem iPhone: Teilen → „Zum Home-Bildschirm“, dann Sajda vom Homescreen öffnen und hier erneut tippen.');
  try{const reg=await navigator.serviceWorker.register('sw-push.js');await navigator.serviceWorker.ready;
   if(await Notification.requestPermission()!=='granted')return pushStatus('Mitteilungen wurden nicht erlaubt.');
   const {schluessel}=await (await fetch('/api/push/schluessel')).json();
