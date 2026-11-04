@@ -6,10 +6,10 @@ body{background:#0c1726;color:#fff;font-family:-apple-system,'SF Pro Display',sa
 #himmel{position:fixed;inset:0;background:linear-gradient(180deg,var(--oben,#74b2e0),var(--unten,#e6f0f2) var(--h),var(--unten,#e6f0f2))}
 #sterne{position:fixed;inset:0;width:100%;height:100%;pointer-events:none}
 .wolke{position:fixed;border-radius:50%;background:radial-gradient(closest-side,rgb(255 255 255/.85),rgb(255 255 255/0));filter:blur(6px);pointer-events:none;opacity:var(--wolken,.6);transition:opacity 2s}
-.wolke.w1{width:260px;height:70px;top:16%;animation:ziehen 95s linear infinite}
-.wolke.w2{width:180px;height:50px;top:27%;animation:ziehen 70s linear infinite -30s}
-.wolke.w3{width:340px;height:90px;top:9%;animation:ziehen 130s linear infinite -80s;opacity:calc(var(--wolken,.6)*.7)}
-.wolke.w4{width:150px;height:40px;top:38%;animation:ziehen 60s linear infinite -12s;opacity:calc(var(--wolken,.6)*.8)}
+.wolke.w1{width:260px;height:70px;top:16%;animation:ziehen 340s linear infinite -120s}
+.wolke.w2{width:180px;height:50px;top:27%;animation:ziehen 260s linear infinite -200s}
+.wolke.w3{width:340px;height:90px;top:9%;animation:ziehen 480s linear infinite -300s;opacity:calc(var(--wolken,.6)*.7)}
+.wolke.w4{width:150px;height:40px;top:38%;animation:ziehen 220s linear infinite -60s;opacity:calc(var(--wolken,.6)*.8)}
 @keyframes ziehen{from{transform:translateX(-360px)}to{transform:translateX(calc(100vw + 40px))}}
 #glut{position:fixed;left:-20%;right:-20%;top:calc(var(--h) - 22%);height:44%;background:radial-gradient(ellipse at var(--gx,50%) 50%,var(--glut,rgb(255 160 90/0)),transparent 62%);pointer-events:none;transition:background 1s}
 #bahn{position:fixed;left:0;top:0;width:100%;height:var(--h);overflow:visible;pointer-events:none}
