@@ -239,3 +239,5 @@ body.fokus:not(.fokus-mehr-offen) #reader #pacePlay{padding:10px 16px;font-size:
 .kaza-kachel{cursor:pointer;border-style:solid;background:#fffdf8;color:#183c33}
 @media(max-height:700px){.kaza-top h1{font-size:26px}.kaza-hero{padding:14px 16px}.kaza-big strong{font-size:40px}#kazaList{gap:6px}.kaza-local{display:none}}
 @media(prefers-reduced-motion:reduce){.kaza-row.pop,.kaza-row.pop .kaza-count strong{animation:none}.kaza-toast,.kaza-bar div{transition:none}}
+
+#formatButton{margin-left:auto;margin-right:8px;padding:8px 16px;border:1px solid #cbd3c7;border-radius:16px;font-size:14px;font-weight:700;text-decoration:none}.app:has(#home[hidden]) #formatButton{display:none}@media(orientation:landscape) and (max-height:650px){#formatButton{padding:5px 12px}}

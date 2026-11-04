@@ -5,6 +5,6 @@
  const titel=document.createElement('label'),link=document.createElement('a');link.href='entwurf/';
  zeile.append(titel,link);document.getElementById('appearancePanel').querySelector('h1').after(zeile);
  function aktualisieren(){let f='../index';try{f=localStorage.getItem('sajda-format')||f}catch{}
-  const sp=document.getElementById('explanationLanguage').value;titel.textContent=L[sp]||L.en;link.textContent=(NAME[f]||'Fitra')+' ›'}
+  const sp=document.getElementById('explanationLanguage').value;titel.textContent=L[sp]||L.en;document.getElementById('formatButton').textContent=L[sp]||L.en;link.textContent=(NAME[f]||'Fitra')+' ›'}
  aktualisieren();document.getElementById('explanationLanguage').addEventListener('change',aktualisieren);
  document.getElementById('settingsButton').addEventListener('click',aktualisieren)})();
