@@ -130,7 +130,7 @@ const FILM={
  Falak:['fa','<i class="bahn"></i><i class="pe" style="animation-name:p1"></i><i class="pe" style="animation-name:p2"></i><i class="pe g" style="animation-name:p3"></i><i class="pe r" style="animation-name:p4"></i><i class="pe r" style="animation-name:p5"></i><i class="p"></i><i class="t1"></i><i class="t2"></i><i class="sg"></i><i class="k" style="left:4px;width:20px"></i><i class="k" style="left:26px;width:9px"></i><i class="k" style="left:37px;width:9px"></i>',['Die Gebete wie Perlen auf ihrer Bahn','Wischen dreht den Tag weiter','Spätere Gebete sind noch verschlossen']]};
 // nur Fitra und Falak sind frei, die anderen kommen bald
 const BALD=new Set(['a','b','c']);
-let wahl='d',gespeichert=null;try{gespeichert=localStorage.getItem('sajda-format')}catch{}if(gespeichert&&!BALD.has(gespeichert))wahl=gespeichert;
+let wahl='d',gespeichert=null;try{gespeichert=localStorage.getItem('sajda-format');localStorage.setItem('sajda-format-gezeigt','1')}catch{}if(gespeichert&&!BALD.has(gespeichert))wahl=gespeichert;
 let empfohlen=null;
 const GRUND={'../index':'Du möchtest beten lernen: Fitra führt dich Schritt für Schritt durch jedes Gebet. Aufbau und Konzept machen den Einstieg sehr einfach.',
  d:'Du kannst es schon: Falak zeigt dir den Tag auf einen Blick, die Gebete wie Perlen auf ihrer Bahn.'};
@@ -150,5 +150,5 @@ const intro=$('intro');if(gespeichert)intro.remove();else intro.querySelectorAll
  if(k.dataset.format){wahl=empfohlen=k.dataset.format;$('grund').textContent=GRUND[wahl];$('grund').hidden=false}
  zeichnen();intro.classList.add('weg');setTimeout(()=>intro.remove(),700);
  if(empfohlen){const i=FORMATE.findIndex(f=>f[0]===empfohlen);setTimeout(()=>vorspielen(document.querySelectorAll('.format')[i]),650)}});
-zeichnen();$('weiter').onclick=()=>{haptik();location.href=wahl+'.html'};
+zeichnen();$('weiter').onclick=()=>{haptik();try{localStorage.setItem('sajda-format',wahl)}catch{}location.href=wahl+'.html'};
 </script></body></html>

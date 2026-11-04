@@ -1,0 +1,25 @@
+/* Gemeinsam: Globus, Legende, gemeinsamer Kaza-Balken (gemeinsam.js) */
+#gemeinsam{gap:12px}
+.gm-live{font-size:11px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:#8a5a12;background:#f6e6c2;border-radius:999px;padding:4px 10px;display:inline-flex;align-items:center;gap:6px}
+.gm-live::before{content:"";width:7px;height:7px;border-radius:50%;background:#d6a33f;animation:gm-puls 1.6s ease-in-out infinite}
+@keyframes gm-puls{50%{opacity:.25}}
+.gm-globus{flex:1 1 0;min-height:160px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+#gmCanvas{display:block;cursor:grab;filter:drop-shadow(0 10px 24px rgb(32 61 52/12%))}
+#gmCanvas:active{cursor:grabbing}
+.gm-hier{margin:0;font-size:15px;color:#476253;text-align:center}
+.gm-legende{flex:none;display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.gm-chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#476253;background:#fffdf8;border:1px solid rgb(32 61 52/8%);border-radius:999px;padding:4px 10px 4px 8px}
+.gm-chip::before{content:"";width:9px;height:9px;border-radius:3px;background:var(--c)}
+.gm-chip.hier{color:#183c33;font-weight:700;border-color:var(--c)}
+.gm-hero{display:grid;gap:8px;padding:14px 18px}
+.gm-kopf{display:flex;justify-content:space-between;gap:10px;font-size:14px;color:#476253}
+#gmZiel{font-variant-numeric:tabular-nums}
+.gm-hero .kaza-big strong{font-size:40px}
+.gm-hero .kaza-bar{height:8px}
+#gmHeute{margin:0;font-size:13px;color:#5f6f62}
+.gm-mit{flex:none;display:flex;align-items:flex-start;gap:10px;padding:10px 14px;background:#fffdf8;border:1px solid rgb(32 61 52/8%);border-radius:16px;cursor:pointer}
+.gm-mit input{width:20px;height:20px;margin:2px 0 0;accent-color:#315c49;flex:none}
+.gm-mit strong{display:block;font-size:15px;color:#183c33}
+.gm-mit small{display:block;font-size:12px;line-height:1.35;color:#6a7969}
+@media(max-height:700px){.gm-hero{padding:10px 14px;gap:6px}.gm-hero .kaza-big strong{font-size:30px}.gm-mit small{display:none}.gm-legende{gap:4px}}
+@media(prefers-reduced-motion:reduce){.gm-live::before{animation:none}}
